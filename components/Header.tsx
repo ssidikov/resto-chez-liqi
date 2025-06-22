@@ -41,11 +41,10 @@ export default function Header() {
           </button>
         </div>        {/* Desktop navigation */}
         <div className='hidden lg:flex lg:gap-x-8'>
-          {navigation.map((item) => (
-            <Link
+          {navigation.map((item) => (            <Link
               key={item.name}
               href={item.href}
-              className='text-sm font-semibold leading-6 text-white/90 hover:text-white hover:text-accent px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 backdrop-blur-sm'>
+              className='text-sm font-lora font-medium leading-6 text-white/90 hover:text-white hover:text-accent px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 backdrop-blur-sm'>
               {item.name}
             </Link>
           ))}
@@ -53,7 +52,7 @@ export default function Header() {
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           <Link
             href='#reservation'
-            className='bg-primary/80 hover:bg-primary text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm border border-white/20 hover:scale-105'>
+            className='bg-primary/80 hover:bg-primary text-white px-6 py-2.5 rounded-full font-lora font-semibold transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm border border-white/20 hover:scale-105'>
             Réserver une table
           </Link>
         </div>
@@ -79,7 +78,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className='-mx-3 block rounded-lg px-3 py-3 text-base font-semibold leading-7 text-white hover:bg-white/10 hover:text-accent transition-all duration-200'
+                    className='-mx-3 block rounded-lg px-3 py-3 text-base font-lora font-medium leading-7 text-white hover:bg-white/10 hover:text-accent transition-all duration-200'
                     onClick={() => setMobileMenuOpen(false)}>
                     {item.name}
                   </Link>
@@ -88,13 +87,13 @@ export default function Header() {
               <div className='py-6'>
                 <Link
                   href='#reservation'
-                  className='bg-primary/80 hover:bg-primary text-white px-6 py-3 rounded-full font-semibold block text-center transition-all duration-300 shadow-lg border border-white/20'
+                  className='bg-primary/80 hover:bg-primary text-white px-6 py-3 rounded-full font-lora font-semibold block text-center transition-all duration-300 shadow-lg border border-white/20'
                   onClick={() => setMobileMenuOpen(false)}>
                   Réserver une table
                 </Link>
               </div>
               {/* Contact info in mobile menu */}
-              <div className='py-6 space-y-4 text-sm text-white/80'>
+              <div className='py-6 space-y-4 text-sm font-lora text-white/80'>
                 <div className='flex items-center space-x-3 p-3 rounded-lg bg-white/5'>
                   <PhoneIcon className='h-5 w-5 text-accent' />
                   <span>+33 1 23 45 67 89</span>

@@ -3,11 +3,11 @@ import type { Config } from 'tailwindcss'
 const config: Config = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      fontFamily: {
+    extend: {      fontFamily: {
         sans: ['var(--font-geist-sans)', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
         dancing: ['var(--font-dancing)', 'cursive'],
+        lora: ['var(--font-lora)', 'serif'],
       },
       colors: {
         primary: 'var(--color-primary)', // #991b1b

@@ -46,7 +46,7 @@ export default function Hero() {
       <div className='relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center'>
         <div className='space-y-16'>
           {/* Subtitle */}
-          <p className='text-accent text-lg font-medium tracking-wide uppercase animate-fade-in'>
+          <p className='text-accent text-lg font-lora font-medium tracking-wide uppercase animate-fade-in'>
             Restaurant Gastronomique
           </p>
 
@@ -56,7 +56,7 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p className='text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay'>
+          <p className='text-xl md:text-2xl font-lora text-gray-200 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay'>
             Découvrez une cuisine française authentique et raffinée dans un cadre élégant au cœur de
             Paris. Une expérience gastronomique unique vous attend.
           </p>
@@ -66,7 +66,7 @@ export default function Hero() {
             {highlights.map((item, index) => (
               <div key={index} className='flex items-center space-x-2 text-white'>
                 <item.icon className='h-5 w-5 text-accent' />
-                <span className='text-sm md:text-base font-medium'>{item.text}</span>
+                <span className='text-sm md:text-base font-lora font-medium'>{item.text}</span>
               </div>
             ))}
           </div>
@@ -78,7 +78,7 @@ export default function Hero() {
                 <StarIcon key={i} className='h-5 w-5 text-accent' />
               ))}
             </div>{' '}
-            <p className='text-white text-lg italic transition-all duration-500'>
+            <p className='text-white text-lg font-lora italic transition-all duration-500'>
               &ldquo;{testimonials[currentTestimonial]}&rdquo;
             </p>
             <div className='flex justify-center mt-4 space-x-2'>
@@ -97,12 +97,12 @@ export default function Hero() {
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up-delay-3'>
             <Link
               href='#reservation'
-              className='bg-primary hover:bg-hover text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105'>
+              className='bg-primary hover:bg-hover text-white px-8 py-4 rounded-full font-lora font-semibold text-lg shadow-2xl hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105'>
               Réserver une table
             </Link>
             <Link
               href='#menu'
-              className='bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105'>
+              className='bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-2 border-white/30 px-8 py-4 rounded-full font-lora font-semibold text-lg transition-all duration-300 transform hover:scale-105'>
               Voir le menu
             </Link>
           </div>
@@ -112,15 +112,14 @@ export default function Hero() {
             <button className='group bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full p-4 transition-all duration-300 transform hover:scale-110'>
               <PlayIcon className='h-8 w-8 text-white group-hover:text-accent transition-colors duration-300' />
             </button>
-            <p className='text-white/80 text-sm mt-2'>Découvrir notre restaurant</p>
+            <p className='text-white/80 text-sm font-lora mt-2'>Découvrir notre restaurant</p>
           </div>
         </div>
       </div>
 
       {/* Contact Info Card */}
-      <div className='absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hidden lg:block animate-slide-in-right'>
-        <h3 className='font-semibold text-gray-900 mb-4'>Réservations</h3>
-        <div className='space-y-3 text-sm'>
+      <div className='absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hidden lg:block animate-slide-in-right'>        <h3 className='font-dancing text-xl font-semibold text-gray-900 mb-4'>Réservations</h3>
+        <div className='space-y-3 text-sm font-lora'>
           <div className='flex items-center space-x-3'>
             <PhoneIcon className='h-4 w-4 text-primary' />
             <span>+33 1 23 45 67 89</span>
