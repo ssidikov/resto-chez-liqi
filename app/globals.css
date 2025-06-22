@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Пользовательские цвета */
+  --color-primary: #991b1b;
+  --color-accent: #facc15;
+  --color-base: #fefefe;
+  --color-text: #1f2937;
+  --color-dark: #2f1b1b;
+  --color-hover: #b91c1c;
+  --color-light: #f9fafb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Отладочный стиль для проверки font-dancing */
+.font-dancing {
+  font-family: var(--font-dancing), 'Dancing Script', cursive !important;
+}
+
+/* Отладочные стили для проверки цветов primary */
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-hover {
+  background-color: var(--color-hover) !important;
+}
+
+.text-text {
+  color: var(--color-text) !important;
+}
+
+.text-light {
+  color: var(--color-light) !important;
+}
+
+.text-color-base {
+  color: var(--color-base) !important;
+}
+
+/* Анимации для Hero секции */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceSlow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out 0.2s both;
+}
+
+.animate-slide-up-delay {
+  animation: slideUp 1s ease-out 0.4s both;
+}
+
+.animate-slide-up-delay-2 {
+  animation: slideUp 1s ease-out 0.6s both;
+}
+
+.animate-slide-up-delay-3 {
+  animation: slideUp 1s ease-out 0.8s both;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 1s ease-out 1s both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1s ease-out 1.2s both;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 3s infinite;
+}
+
+/* Liquid Glass эффекты */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.liquid-glass-mobile {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
