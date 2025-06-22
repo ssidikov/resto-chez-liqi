@@ -7,9 +7,9 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'Accueil', href: '#' },
-  { name: 'Menu', href: '#menu' },
-  { name: 'À propos', href: '#about' },
-  { name: 'Galerie', href: '#gallery' },
+  { name: 'Carte', href: '#menu' },
+  { name: 'Spécialités', href: '#specialites' },
+  { name: 'Notre Histoire', href: '#about' },
   { name: 'Contact', href: '#contact' },
 ]
 
@@ -100,11 +100,11 @@ export default function Header() {
                 </div>
                 <div className='flex items-center space-x-3 p-3 rounded-lg bg-white/5'>
                   <ClockIcon className='h-5 w-5 text-accent' />
-                  <span>Mar-Dim: 12h-14h, 19h-22h</span>
+                  <span>Mar-Dim: 12h-14h30, 19h-23h</span>
                 </div>
                 <div className='flex items-center space-x-3 p-3 rounded-lg bg-white/5'>
                   <MapPinIcon className='h-5 w-5 text-accent' />
-                  <span>123 Rue de la Gastronomie, Paris</span>
+                  <span>15 Rue de Belleville, Paris 20ème</span>
                 </div>
               </div>
             </div>

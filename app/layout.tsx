@@ -29,8 +29,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Chez Liqi - Restaurant Gastronomique Paris',
-  description: 'Découvrez une cuisine française authentique et raffinée au cœur de Paris. Restaurant gastronomique avec chef étoilé Michelin.',
+  title: 'Chez Liqi - Restaurant Chinois Authentique Paris',
+  description: 'Découvrez la cuisine chinoise authentique au cœur de Paris. Restaurant traditionnel avec des spécialités de Pékin et du Sichuan.',
 }
 
 export default function RootLayout({

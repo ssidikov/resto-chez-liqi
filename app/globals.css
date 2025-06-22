@@ -3,14 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  /* Пользовательские цвета */
-  --color-primary: #991b1b;
-  --color-accent: #facc15;
+  /* Пользовательские цвета для китайского ресторана */
+  --color-primary: #dc2626; /* Красный */
+  --color-accent: #fbbf24; /* Золотой */
   --color-base: #fefefe;
   --color-text: #1f2937;
-  --color-dark: #2f1b1b;
-  --color-hover: #b91c1c;
-  --color-light: #f9fafb;
+  --color-dark: #7f1d1d; /* Темно-красный */
+  --color-hover: #b91c1c; /* Ярко-красный */
+  --color-light: #fef7cd; /* Светло-золотой */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -140,6 +140,19 @@ body {
 
 .animate-bounce-slow {
   animation: bounceSlow 3s infinite;
+}
+
+/* Китайские акценты */
+.chinese-border {
+  border-image: linear-gradient(45deg, #dc2626, #fbbf24, #dc2626) 1;
+}
+
+.chinese-shadow {
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+}
+
+.chinese-glow {
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
 }
 
 /* Liquid Glass эффекты */
