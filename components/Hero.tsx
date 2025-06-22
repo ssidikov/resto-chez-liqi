@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { StarIcon, ClockIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
-import { PlayIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -43,10 +42,8 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div
-        className='relative
-       z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center'>
-        <div className='space-y-16'>
+      <div className='relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center'>
+        <div className='flex flex-col items-center justify-center min-h-screen space-y-8'>
           {/* Subtitle */}{' '}
           <p className='text-accent text-lg font-lora font-medium tracking-wide uppercase animate-fade-in'>
             Restaurant Chinois Authentique
@@ -103,21 +100,14 @@ export default function Hero() {
               Voir la carte
             </Link>
           </div>
-          {/* Video Play Button */}
-          <div className='animate-bounce-slow'>
-            <button className='group bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full p-4 transition-all duration-300 transform hover:scale-110'>
-              <PlayIcon className='h-8 w-8 text-white group-hover:text-accent transition-colors duration-300' />
-            </button>
-            <p className='text-white/80 text-sm font-lora mt-2'>Découvrir notre restaurant</p>
-          </div>
         </div>
       </div>
 
       {/* Contact Info Card */}
-      <div className='absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hidden lg:block animate-slide-in-right'>
+      <div className='absolute bottom-8 right-8 shadow-2xl hidden lg:block animate-slide-in-right g-white/10 animate-fade-in-delay bg-white/10 backdrop-blur-sm rounded-2xl p-6 mx-auto max-w-2xl animate-fade-in-delay'>
         {' '}
-        <h3 className='font-dancing text-xl font-semibold text-gray-900 mb-4'>Réservations</h3>
-        <div className='space-y-3 text-sm font-lora text-text'>
+        <h3 className='font-dancing text-xl font-semibold mb-4'>Réservations</h3>
+        <div className='space-y-3 text-sm font-lora text-light'>
           <div className='flex items-center space-x-3'>
             <PhoneIcon className='h-4 w-4 text-primary' />
             <span>07 82 88 67 05</span>
@@ -134,13 +124,6 @@ export default function Hero() {
             <MapPinIcon className='h-4 w-4 text-primary' />
             <span>33 Rue Chanez, Paris 16ème</span>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce'>
-        <div className='w-6 h-10 border-2 border-white/50 rounded-full flex justify-center'>
-          <div className='w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse' />
         </div>
       </div>
     </section>

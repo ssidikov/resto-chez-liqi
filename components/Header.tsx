@@ -16,21 +16,24 @@ const navigation = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  return (    <header className='fixed inset-x-0 top-0 z-50 transition-all duration-300'>
+  return (
+    <header className='fixed inset-x-0 top-0 z-50 transition-all duration-300'>
       {/* Liquid Glass Background */}
       <div className='absolute inset-0 bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-lg'></div>
-      
       {/* Main navigation */}
       <nav
         className='relative mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8'
-        aria-label='Global'>        {/* Logo */}
+        aria-label='Global'>
+        {' '}
+        {/* Logo */}
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5 group'>
             <h1 className='text-3xl lg:text-4xl font-semibold text-white font-dancing drop-shadow-lg group-hover:text-accent transition-colors duration-300'>
               Chez Liqi
             </h1>
           </Link>
-        </div>        {/* Mobile menu button */}
+        </div>{' '}
+        {/* Mobile menu button */}
         <div className='flex lg:hidden'>
           <button
             type='button'
@@ -39,16 +42,19 @@ export default function Header() {
             <span className='sr-only'>Ouvrir le menu principal</span>
             <Bars3Icon className='h-6 w-6' aria-hidden='true' />
           </button>
-        </div>        {/* Desktop navigation */}
+        </div>{' '}
+        {/* Desktop navigation */}
         <div className='hidden lg:flex lg:gap-x-8'>
-          {navigation.map((item) => (            <Link
+          {navigation.map((item) => (
+            <Link
               key={item.name}
               href={item.href}
               className='text-sm font-lora font-medium leading-6 text-white/90 hover:text-white hover:text-accent px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 backdrop-blur-sm'>
               {item.name}
             </Link>
           ))}
-        </div>        {/* Reservation button */}
+        </div>{' '}
+        {/* Reservation button */}
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           <Link
             href='#reservation'
@@ -56,13 +62,16 @@ export default function Header() {
             Réserver une table
           </Link>
         </div>
-      </nav>      {/* Mobile menu */}
+      </nav>{' '}
+      {/* Mobile menu */}
       <Dialog as='div' className='lg:hidden' open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className='fixed inset-0 z-50 bg-black/50 backdrop-blur-sm' />
         <DialogPanel className='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white/10 backdrop-blur-xl p-6 sm:max-w-sm border-l border-white/20 shadow-2xl'>
           <div className='flex items-center justify-between'>
             <Link href='/' className='-m-1.5 p-1.5'>
-              <h1 className='text-3xl font-bold text-white font-dancing drop-shadow-lg'>Chez Liqi</h1>
+              <h1 className='text-3xl font-bold text-white font-dancing drop-shadow-lg'>
+                Chez Liqi
+              </h1>
             </Link>
             <button
               type='button'
@@ -71,7 +80,8 @@ export default function Header() {
               <span className='sr-only'>Fermer le menu</span>
               <XMarkIcon className='h-6 w-6' aria-hidden='true' />
             </button>
-          </div>          <div className='mt-6 flow-root'>
+          </div>{' '}
+          <div className='mt-6 flow-root'>
             <div className='-my-6 divide-y divide-white/20'>
               <div className='space-y-2 py-6'>
                 {navigation.map((item) => (
