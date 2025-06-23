@@ -364,21 +364,18 @@ export default function Carte() {
               {/* Content */}
               <div className='p-6'>
                 {/* Item Name */}
-                <h3 className='text-lg font-lora font-semibold text-white group-hover:text-accent transition-colors mb-3 leading-tight'>
+                <h3 className='text-lg font-lora font-semibold text-white group-hover:text-accent transition-colors  min-h-16 leading-tight'>
                   {item.name}
                 </h3>
 
                 {/* Description */}
-                <p className='text-gray-300 font-lora leading-relaxed mb-6 text-sm'>
+                <p className='text-gray-300 font-lora leading-relaxed text-sm min-h-20'>
                   {item.description}
                 </p>
 
                 {/* Price and Action */}
                 <div className='flex justify-between items-center'>
                   <span className='text-2xl font-lora font-bold text-accent'>{item.price}</span>
-                  <button className='glass-button px-4 py-2 rounded-full font-lora font-medium text-sm transition-all duration-300 hover:scale-105'>
-                    Commander
-                  </button>
                 </div>
               </div>
             </div>
