@@ -324,13 +324,13 @@ export default function Carte() {
           {menuItems[activeCategory as keyof typeof menuItems]?.map((item, index) => (
             <div
               key={item.name}
-              className='group liquid-glass-card rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20'
+              className='group liquid-glass-card rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 min-h-[440px]'
               style={{
                 animationDelay: `${index * 100}ms`,
                 animation: 'slideInUp 0.6s ease-out both',
               }}>
               {/* Image */}
-              <div className='relative w-full h-48 overflow-hidden'>
+              <div className='relative w-full h-72 overflow-hidden'>
                 <Image
                   src={item.image}
                   alt={item.name}
