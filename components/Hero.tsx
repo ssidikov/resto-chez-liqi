@@ -28,7 +28,7 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
   return (
-    <section className='relative min-h-screen flex items-center justify-center overflow-hidden pt-0'>
+    <section id='hero' className='relative min-h-screen flex items-center justify-center overflow-hidden pt-0'>
       {/* Background Image with Overlay */}
       <div className='absolute inset-0 z-0'>
         <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 z-10' />{' '}

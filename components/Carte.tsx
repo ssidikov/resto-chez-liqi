@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const categories = [
   { id: 'entrees', name: 'Entrées 前菜', icon: '🥟' },
-  { id: 'plats', name: 'Plats 主食', icon: '�' },
+  { id: 'plats', name: 'Plats 主食', icon: '🍽️' },
   { id: 'nouilles', name: 'Nouilles 面条', icon: '🍛' },
   { id: 'desserts', name: 'Desserts 甜品', icon: '🥮' },
   { id: 'boissons', name: 'Boissons 饮料', icon: '🍵' },
@@ -295,7 +295,7 @@ export default function Carte() {
       <div className='relative z-10 max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Header */}
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-dancing text-primary mb-4'>Notre Carte 菜单</h2>
+          <h2 className='text-4xl md:text-5xl font-dancing text-primary mb-4 text-glow'>Notre Carte 菜单</h2>
           <p className='text-lg font-lora text-gray-300 max-w-3xl mx-auto'>
             Spécialités de raviolis et nouilles fait maison. Découvrez nos recettes traditionnelles
             chinoises préparées avec des ingrédients frais et authentiques.
@@ -308,7 +308,7 @@ export default function Carte() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`group flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 ${
+              className={`group category-button flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 relative z-10 ${
                 activeCategory === category.id
                   ? 'bg-primary/80 backdrop-blur-xl text-white shadow-lg scale-105 border border-primary/30'
                   : 'bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 hover:text-accent shadow-md hover:shadow-lg hover:scale-102 border border-white/20'
@@ -324,10 +324,9 @@ export default function Carte() {
           {menuItems[activeCategory as keyof typeof menuItems]?.map((item, index) => (
             <div
               key={item.name}
-              className='group liquid-glass-card rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 min-h-[440px]'
+              className='group liquid-glass-card card-reveal rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 min-h-[440px]'
               style={{
                 animationDelay: `${index * 100}ms`,
-                animation: 'slideInUp 0.6s ease-out both',
               }}>
               {/* Image */}
               <div className='relative w-full h-72 overflow-hidden'>

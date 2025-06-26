@@ -6,10 +6,10 @@ import { Bars3Icon, XMarkIcon, PhoneIcon, ClockIcon, MapPinIcon } from '@heroico
 import Link from 'next/link'
 
 const navigation = [
-  { name: 'Accueil', href: '#' },
-  { name: 'Carte', href: '#menu' },
-  { name: 'Spécialités', href: '#specialites' },
+  { name: 'Accueil', href: '#hero' },
   { name: 'Notre Histoire', href: '#about' },
+  { name: 'Carte', href: '#menu' },
+  { name: 'Galerie', href: '#gallery' },
   { name: 'Contact', href: '#contact' },
 ]
 

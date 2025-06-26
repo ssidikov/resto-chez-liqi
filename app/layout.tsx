@@ -29,8 +29,24 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Chez Liqi - Restaurant Chinois Authentique Paris',
-  description: 'Découvrez la cuisine chinoise authentique au cœur de Paris. Restaurant traditionnel avec des spécialités de Pékin et du Sichuan.',
+  title: 'Restaurant Chez Liqi - Cuisine Chinoise Authentique à Paris | 丽琪餐厅',
+  description: 'Découvrez l\'authenticité de la cuisine chinoise traditionnelle au Restaurant Chez Liqi à Paris. Spécialités de raviolis faits maison, nouilles fraîches et plats du Sichuan depuis 1995. Réservation recommandée.',
+  keywords: 'restaurant chinois Paris, cuisine authentique, raviolis maison, nouilles chinoises, Sichuan, Pékin, dim sum, cuisine asiatique, restaurant traditionnel',
+  openGraph: {
+    title: 'Restaurant Chez Liqi - Cuisine Chinoise Authentique à Paris',
+    description: 'Vivez une expérience culinaire authentique avec nos spécialités chinoises traditionnelles préparées par le Chef Liqi.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Restaurant Chez Liqi - Cuisine Chinoise Authentique',
+    description: 'Découvrez les saveurs authentiques de la Chine au cœur de Paris',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
