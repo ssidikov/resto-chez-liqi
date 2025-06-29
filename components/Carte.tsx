@@ -282,12 +282,6 @@ export default function Carte() {
     <section id='menu' className='relative py-20 overflow-hidden'>
       {/* Background */}
       <div className='absolute inset-0'>
-        <Image
-          src='https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80'
-          alt='Restaurant background'
-          fill
-          className='object-cover'
-        />
         <div className='absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/60' />
         <div className='absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/5' />
       </div>
@@ -295,7 +289,9 @@ export default function Carte() {
       <div className='relative z-10 max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Header */}
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-dancing text-primary mb-4 text-glow'>Notre Carte 菜单</h2>
+          <h2 className='text-4xl md:text-5xl font-dancing text-primary mb-4 text-glow'>
+            Notre Carte 菜单
+          </h2>
           <p className='text-lg font-lora text-gray-300 max-w-3xl mx-auto'>
             Spécialités de raviolis et nouilles fait maison. Découvrez nos recettes traditionnelles
             chinoises préparées avec des ingrédients frais et authentiques.

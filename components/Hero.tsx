@@ -1,6 +1,3 @@
-'use client'
-
-import { useState, useEffect } from 'react'
 import { StarIcon, ClockIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -11,22 +8,7 @@ const highlights = [
   { icon: MapPinIcon, text: '33 Rue Chanez, Paris' },
 ]
 
-const testimonials = [
-  'Super restaurant de quartier !',
-  'Très bon restaurant chinois !',
-  "J'adore y aller, les nouilles sont faites maison !",
-  'Excellents plats !',
-]
-
 export default function Hero() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
   return (
     <section
       id='hero'

@@ -7,7 +7,8 @@ export default function About() {
     <section id='about' className='relative py-20 overflow-hidden'>
       {/* Background */}
       <div className='absolute inset-0'>
-        <div className='absolute inset-0 bg-black/80' />
+        <div className='absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/60' />
+        <div className='absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/5' />
       </div>
 
       <div className='relative z-10 max-w-7xl mx-auto px-6 lg:px-8'>
