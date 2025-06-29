@@ -50,15 +50,15 @@ export default function About() {
             <div className='grid grid-cols-3 gap-6 pt-8 animate-slide-up-delay-2'>
               <div className='text-center liquid-glass p-4 rounded-2xl'>
                 <div className='text-3xl font-dancing text-primary font-bold mb-2'>15+</div>
-                <div className='text-sm font-lora text-gray-600'>Spécialités</div>
+                <div className='text-sm font-lora text-gray-400'>Spécialités</div>
               </div>
               <div className='text-center liquid-glass p-4 rounded-2xl'>
                 <div className='text-3xl font-dancing text-primary font-bold mb-2'>100%</div>
-                <div className='text-sm font-lora text-gray-600'>Fait maison</div>
+                <div className='text-sm font-lora text-gray-400'>Fait maison</div>
               </div>
               <div className='text-center liquid-glass p-4 rounded-2xl'>
                 <div className='text-3xl font-dancing text-primary font-bold mb-2'>7j/7</div>
-                <div className='text-sm font-lora text-gray-600'>Ouvert</div>
+                <div className='text-sm font-lora text-gray-400'>Ouvert</div>
               </div>
             </div>
           </div>

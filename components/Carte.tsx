@@ -306,8 +306,8 @@ export default function Carte() {
               onClick={() => setActiveCategory(category.id)}
               className={`group category-button flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 relative z-10 ${
                 activeCategory === category.id
-                  ? 'bg-primary/80 backdrop-blur-xl text-white shadow-lg scale-105 border border-primary/30'
-                  : 'bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 hover:text-accent shadow-md hover:shadow-lg hover:scale-102 border border-white/20'
+                  ? 'bg-primary/80 backdrop-blur-xl text-white shadow-lg border border-primary/30'
+                  : 'bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 hover:text-accent shadow-md hover:shadow-lg border border-white/20'
               }`}>
               <span className='text-xl'>{category.icon}</span>
               <span className='font-lora font-medium'>{category.name}</span>
@@ -320,7 +320,7 @@ export default function Carte() {
           {menuItems[activeCategory as keyof typeof menuItems]?.map((item, index) => (
             <div
               key={item.name}
-              className='group liquid-glass-card card-reveal rounded-3xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 min-h-[440px]'
+              className='group liquid-glass-card card-reveal rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-primary/20 min-h-[440px]'
               style={{
                 animationDelay: `${index * 100}ms`,
               }}>
@@ -330,7 +330,7 @@ export default function Carte() {
                   src={item.image}
                   alt={item.name}
                   fill
-                  className='object-cover group-hover:scale-110 transition-transform duration-700'
+                  className='object-cover'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent' />
 
@@ -379,7 +379,7 @@ export default function Carte() {
 
         {/* Call to Action */}
         <div className='text-center mt-12'>
-          <button className='glass-button-large px-8 py-4 rounded-full font-lora font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
+          <button className='glass-button-large px-8 py-4 rounded-full font-lora font-semibold text-lg shadow-lg hover:shadow-xl'>
             Réserver une table
           </button>
         </div>

@@ -64,12 +64,12 @@ export default function Hero() {
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up-delay-3'>
             <Link
               href='#reservation'
-              className='bg-primary hover:bg-hover text-white px-8 py-4 rounded-full font-lora font-semibold text-lg shadow-2xl hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105'>
+              className='bg-primary hover:bg-hover text-white px-8 py-4 rounded-full font-lora font-semibold text-lg shadow-2xl hover:shadow-primary/50'>
               Réserver une table
             </Link>
             <Link
               href='#menu'
-              className='bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-2 border-white/30 px-8 py-4 rounded-full font-lora font-semibold text-lg transition-all duration-300 transform hover:scale-105'>
+              className='bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-2 border-white/30 px-8 py-4 rounded-full font-lora font-semibold text-lg'>
               Voir la carte
             </Link>
           </div>

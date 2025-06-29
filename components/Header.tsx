@@ -56,7 +56,7 @@ export default function Header() {
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           <Link
             href='#reservation'
-            className='text-base xl:text-lg bg-primary/80 hover:bg-primary text-white px-6 py-2.5 rounded-full font-lora font-semibold transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm border border-white/20 hover:scale-105'>
+            className='text-base xl:text-lg bg-primary/80 hover:bg-primary text-white px-6 py-2.5 rounded-full font-lora font-semibold transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm border'>
             Réserver une table
           </Link>
         </div>

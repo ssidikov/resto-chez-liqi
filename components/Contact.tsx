@@ -103,7 +103,7 @@ export default function Contact() {
                   réserver à l&apos;avance, surtout le week-end.
                 </p>
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                  <button className='glass-button-large px-6 py-3 rounded-full font-lora font-semibold transition-all duration-300 transform hover:scale-105'>
+                  <button className='glass-button-large px-6 py-3 rounded-full font-lora font-semibold'>
                     Réserver par téléphone
                   </button>
                   <button className='border border-primary/30 text-primary px-6 py-3 rounded-full font-lora font-semibold hover:bg-primary/10 transition-all duration-300'>
