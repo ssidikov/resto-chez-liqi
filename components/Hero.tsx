@@ -59,36 +59,25 @@ export default function Hero() {
             Découvrez l&apos;authenticité de la cuisine chinoise traditionnelle dans le 16e
             arrondissement. Des saveurs ancestrales préparées avec passion dans un cadre chaleureux.
           </p>
-          {/* Highlights */}
-          <div className='flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-8 animate-slide-up-delay-2'>
-            {highlights.map((item, index) => (
-              <div key={index} className='flex items-center space-x-2 text-white'>
-                <item.icon className='h-6 w-6 text-accent' />
-                <span className='text-base md:text-lg font-lora font-medium'>{item.text}</span>
-              </div>
-            ))}
-          </div>
-          {/* Testimonial Slider */}
+          {/* Overall Rating */}
           <div className='bg-white/10 backdrop-blur-sm rounded-2xl p-6 w-full max-w-2xl mx-auto animate-fade-in-delay'>
-            <div className='flex justify-center mb-4'>
+            <div className='flex items-center justify-center mb-4'>
               {[...Array(5)].map((_, i) => (
-                <StarIcon key={i} className='h-5 w-5 text-accent' />
+                <StarIcon key={i} className='h-8 w-8 text-accent mx-1' />
               ))}
             </div>
-            <p className='text-white text-xl md:text-2xl font-lora italic transition-all duration-500 min-h-[3rem] flex items-center justify-center text-center'>
-              &ldquo;{testimonials[currentTestimonial]}&rdquo;
-            </p>
-            <div className='flex justify-center mt-4 space-x-2'>
-              {testimonials.map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? 'bg-white opacity-40 w-8' : 'bg-white'
-                  }`}
-                />
+            <div className='text-4xl font-dancing text-white font-bold mb-2'>4.8/5</div>
+            <div className='text-gray-300 font-lora'>Basé sur plus de 111 avis clients</div>
+            <div className='mt-4 flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-8 animate-slide-up-delay-2'>
+              {highlights.map((item, index) => (
+                <div key={index} className='flex items-center space-x-2 text-gray-300'>
+                  <item.icon className='h-6 w-6 text-accent' />
+                  <span className='text-base md:text-lg font-lora font-medium'>{item.text}</span>
+                </div>
               ))}
             </div>
           </div>
+
           {/* Call to Action Buttons */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up-delay-3'>
             <Link

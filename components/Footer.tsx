@@ -1,6 +1,7 @@
 'use client'
 
 import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -90,7 +91,7 @@ export default function Footer() {
                     href='#about'
                     className='text-gray-300 font-lora hover:text-accent transition-colors duration-300 flex items-center group'>
                     <span className='w-1 h-1 bg-accent rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity'></span>
-                    Notre Histoire
+                    À Propos
                   </a>
                 </li>
                 <li>
@@ -99,14 +100,6 @@ export default function Footer() {
                     className='text-gray-300 font-lora hover:text-accent transition-colors duration-300 flex items-center group'>
                     <span className='w-1 h-1 bg-accent rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity'></span>
                     Notre Carte
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#gallery'
-                    className='text-gray-300 font-lora hover:text-accent transition-colors duration-300 flex items-center group'>
-                    <span className='w-1 h-1 bg-accent rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity'></span>
-                    Galerie
                   </a>
                 </li>
                 <li>
@@ -161,25 +154,15 @@ export default function Footer() {
           <div className='max-w-7xl mx-auto px-6 lg:px-8 py-6'>
             <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
               <div className='text-gray-400 font-lora text-sm text-center md:text-left'>
-                © 2024 Restaurant Chez Liqi. Tous droits réservés.
+                © 2025 Restaurant Chez Liqi. Tous droits réservés.
               </div>
 
               <div className='flex flex-wrap justify-center md:justify-end space-x-6 text-sm'>
-                <a
-                  href='#'
+                <Link
+                  href='https://www.sidikoff.com'
                   className='text-gray-400 font-lora hover:text-accent transition-colors duration-300'>
-                  Mentions légales
-                </a>
-                <a
-                  href='#'
-                  className='text-gray-400 font-lora hover:text-accent transition-colors duration-300'>
-                  Politique de confidentialité
-                </a>
-                <a
-                  href='#'
-                  className='text-gray-400 font-lora hover:text-accent transition-colors duration-300'>
-                  CGV
-                </a>
+                  Ce site est réalisé par SIDIKOFF DIGITAL - Création de site web
+                </Link>
               </div>
             </div>
           </div>
