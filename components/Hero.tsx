@@ -12,10 +12,10 @@ const highlights = [
 ]
 
 const testimonials = [
-  'La meilleure cuisine chinoise de Paris !',
-  'Des saveurs authentiques qui nous transportent',
-  'Un voyage culinaire vers la Chine',
-  'Accueil chaleureux et plats délicieux',
+  'Super restaurant de quartier !',
+  'Très bon restaurant chinois !',
+  "J'adore y aller, les nouilles sont faites maison !",
+  'Excellents plats !',
 ]
 
 export default function Hero() {
@@ -28,7 +28,9 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
   return (
-    <section id='hero' className='relative min-h-screen flex items-center justify-center overflow-hidden pt-0'>
+    <section
+      id='hero'
+      className='relative min-h-screen flex items-center justify-center overflow-hidden'>
       {/* Background Image with Overlay */}
       <div className='absolute inset-0 z-0'>
         <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 z-10' />{' '}
@@ -42,18 +44,18 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className='relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center'>
-        <div className='flex flex-col items-center justify-center min-h-screen space-y-8'>
-          {/* Subtitle */}{' '}
-          <p className='text-accent text-lg font-lora font-medium tracking-wide uppercase animate-fade-in'>
+      <div className='relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+        <div className='flex flex-col items-center justify-center min-h-screen space-y-4 sm:space-y-6 md:space-y-8 py-20 pt-28'>
+          {/* Subtitle */}
+          <p className='text-lg sm:text-xl md:text-2xl font-lora font-medium tracking-wide uppercase animate-fade-in text-accent mt-0 md:mt-6'>
             Restaurant Chinois Authentique
           </p>
           {/* Main Title */}
-          <h1 className='text-5xl md:text-7xl lg:text-8xl font-dancing text-white leading-tight animate-slide-up'>
+          <h1 className='text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-dancing text-white leading-tight animate-slide-up'>
             Chez Liqi
           </h1>
-          {/* Description */}{' '}
-          <p className='text-xl md:text-2xl font-lora text-gray-200 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay'>
+          {/* Description */}
+          <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-lora text-gray-200 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay px-4'>
             Découvrez l&apos;authenticité de la cuisine chinoise traditionnelle dans le 16e
             arrondissement. Des saveurs ancestrales préparées avec passion dans un cadre chaleureux.
           </p>
@@ -61,19 +63,19 @@ export default function Hero() {
           <div className='flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-8 animate-slide-up-delay-2'>
             {highlights.map((item, index) => (
               <div key={index} className='flex items-center space-x-2 text-white'>
-                <item.icon className='h-5 w-5 text-accent' />
-                <span className='text-sm md:text-base font-lora font-medium'>{item.text}</span>
+                <item.icon className='h-6 w-6 text-accent' />
+                <span className='text-base md:text-lg font-lora font-medium'>{item.text}</span>
               </div>
             ))}
           </div>
           {/* Testimonial Slider */}
-          <div className='bg-white/10 backdrop-blur-sm rounded-2xl p-6 mx-auto max-w-2xl animate-fade-in-delay'>
+          <div className='bg-white/10 backdrop-blur-sm rounded-2xl p-6 w-full max-w-2xl mx-auto animate-fade-in-delay'>
             <div className='flex justify-center mb-4'>
               {[...Array(5)].map((_, i) => (
                 <StarIcon key={i} className='h-5 w-5 text-accent' />
               ))}
-            </div>{' '}
-            <p className='text-white text-lg font-lora italic transition-all duration-500'>
+            </div>
+            <p className='text-white text-xl md:text-2xl font-lora italic transition-all duration-500 min-h-[3rem] flex items-center justify-center text-center'>
               &ldquo;{testimonials[currentTestimonial]}&rdquo;
             </p>
             <div className='flex justify-center mt-4 space-x-2'>
@@ -81,7 +83,7 @@ export default function Hero() {
                 <div
                   key={index}
                   className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? 'bg-accent w-8' : 'bg-white/50'
+                    index === currentTestimonial ? 'bg-white opacity-40 w-8' : 'bg-white'
                   }`}
                 />
               ))}
@@ -104,7 +106,7 @@ export default function Hero() {
       </div>
 
       {/* Contact Info Card */}
-      <div className='absolute bottom-8 right-8 shadow-2xl hidden lg:block animate-slide-in-right g-white/10 animate-fade-in-delay bg-white/10 backdrop-blur-sm rounded-2xl p-6 mx-auto max-w-2xl animate-fade-in-delay'>
+      <div className='absolute bottom-20 right-8 shadow-2xl hidden xl:block animate-slide-in-right g-white/10 animate-fade-in-delay bg-white/10 backdrop-blur-sm rounded-2xl p-6 mx-auto max-w-2xl animate-fade-in-delay'>
         {' '}
         <h3 className='font-dancing text-xl font-semibold mb-4'>Réservations</h3>
         <div className='space-y-3 text-sm font-lora text-light'>

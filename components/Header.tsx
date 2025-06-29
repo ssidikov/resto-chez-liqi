@@ -28,7 +28,7 @@ export default function Header() {
         {/* Logo */}
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5 group'>
-            <h1 className='text-3xl lg:text-4xl font-semibold text-white font-dancing drop-shadow-lg group-hover:text-accent transition-colors duration-300'>
+            <h1 className='text-4xl lg:text-5xl font-semibold text-white font-dancing drop-shadow-lg group-hover:text-accent transition-colors duration-300'>
               Chez Liqi
             </h1>
           </Link>
@@ -42,14 +42,14 @@ export default function Header() {
             <span className='sr-only'>Ouvrir le menu principal</span>
             <Bars3Icon className='h-6 w-6' aria-hidden='true' />
           </button>
-        </div>{' '}
+        </div>
         {/* Desktop navigation */}
         <div className='hidden lg:flex lg:gap-x-8'>
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className='text-sm font-lora font-medium leading-6 text-white/90 hover:text-white hover:text-accent px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 backdrop-blur-sm'>
+              className='text-base xl:text-lg font-lora font-medium leading-6 text-white/90 hover:text-white hover:text-accent px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 backdrop-blur-sm'>
               {item.name}
             </Link>
           ))}
@@ -58,14 +58,14 @@ export default function Header() {
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           <Link
             href='#reservation'
-            className='bg-primary/80 hover:bg-primary text-white px-6 py-2.5 rounded-full font-lora font-semibold transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm border border-white/20 hover:scale-105'>
+            className='text-base xl:text-lg bg-primary/80 hover:bg-primary text-white px-6 py-2.5 rounded-full font-lora font-semibold transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm border border-white/20 hover:scale-105'>
             Réserver une table
           </Link>
         </div>
       </nav>{' '}
       {/* Mobile menu */}
       <Dialog as='div' className='lg:hidden' open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className='fixed inset-0 z-50 bg-black/50 backdrop-blur-sm' />
+        <div className='fixed inset-0 z-50 bg-black/80/50 backdrop-blur-sm' />
         <DialogPanel className='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white/10 backdrop-blur-xl p-6 sm:max-w-sm border-l border-white/20 shadow-2xl'>
           <div className='flex items-center justify-between'>
             <Link href='/' className='-m-1.5 p-1.5'>
@@ -88,7 +88,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className='-mx-3 block rounded-lg px-3 py-3 text-base font-lora font-medium leading-7 text-white hover:bg-white/10 hover:text-accent transition-all duration-200'
+                    className='-mx-3 block rounded-lg px-3 py-3 text-lg font-lora font-medium leading-7 text-white hover:bg-white/10 hover:text-accent transition-all duration-200'
                     onClick={() => setMobileMenuOpen(false)}>
                     {item.name}
                   </Link>
@@ -103,7 +103,7 @@ export default function Header() {
                 </Link>
               </div>
               {/* Contact info in mobile menu */}
-              <div className='py-6 space-y-4 text-sm font-lora text-white/80'>
+              <div className='py-6 space-y-4 text-lg font-lora text-white/80'>
                 <div className='flex items-center space-x-3 p-3 rounded-lg bg-white/5'>
                   <PhoneIcon className='h-5 w-5 text-accent' />
                   <span>+33 1 23 45 67 89</span>

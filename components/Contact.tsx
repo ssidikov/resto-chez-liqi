@@ -7,11 +7,7 @@ export default function Contact() {
   return (
     <section id='contact' className='relative py-20 overflow-hidden'>
       {/* Background */}
-      <div className='absolute inset-0'>
-        <div className='absolute inset-0 bg-gradient-to-br from-slate-50 via-red-50/30 to-amber-50/20' />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(220,38,38,0.1)_0%,transparent_50%)]' />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(251,191,36,0.1)_0%,transparent_50%)]' />
-      </div>
+      <div className='absolute inset-0 bg-black/80'></div>
 
       <div className='relative z-10 max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Header */}
@@ -20,7 +16,7 @@ export default function Contact() {
             Nous Trouver 联系我们
           </h2>
           <p className='text-lg font-lora text-gray-700 max-w-3xl mx-auto'>
-            Situé au cœur de Paris, notre restaurant vous accueille dans une ambiance chaleureuse 
+            Situé au cœur de Paris, notre restaurant vous accueille dans une ambiance chaleureuse
             pour partager les saveurs authentiques de la Chine.
           </p>
         </div>
@@ -37,8 +33,10 @@ export default function Contact() {
                 <div className='flex-1'>
                   <h3 className='text-xl font-lora font-semibold text-gray-800 mb-2'>Adresse</h3>
                   <p className='text-gray-600 font-lora leading-relaxed'>
-                    123 Rue de la Paix<br />
-                    75001 Paris, France<br />
+                    123 Rue de la Paix
+                    <br />
+                    75001 Paris, France
+                    <br />
                     Métro: Opéra (Lignes 3, 7, 8)
                   </p>
                 </div>
@@ -52,7 +50,9 @@ export default function Contact() {
                   <ClockIcon className='h-6 w-6 text-accent' />
                 </div>
                 <div className='flex-1'>
-                  <h3 className='text-xl font-lora font-semibold text-gray-800 mb-4'>Horaires d&apos;ouverture</h3>
+                  <h3 className='text-xl font-lora font-semibold text-gray-800 mb-4'>
+                    Horaires d&apos;ouverture
+                  </h3>
                   <div className='space-y-2 text-gray-600 font-lora'>
                     <div className='flex justify-between'>
                       <span>Lundi - Vendredi</span>
@@ -99,8 +99,8 @@ export default function Contact() {
               <div className='text-center'>
                 <h3 className='text-2xl font-dancing text-primary mb-4'>Réservation Recommandée</h3>
                 <p className='text-gray-600 font-lora mb-6'>
-                  Pour garantir votre table et éviter l&apos;attente, nous vous conseillons 
-                  de réserver à l&apos;avance, surtout le week-end.
+                  Pour garantir votre table et éviter l&apos;attente, nous vous conseillons de
+                  réserver à l&apos;avance, surtout le week-end.
                 </p>
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                   <button className='glass-button-large px-6 py-3 rounded-full font-lora font-semibold transition-all duration-300 transform hover:scale-105'>
@@ -131,7 +131,7 @@ export default function Contact() {
               <h3 className='text-xl font-lora font-semibold text-gray-800 mb-6 text-center'>
                 Ce que disent nos clients
               </h3>
-              
+
               <div className='space-y-6'>
                 <div className='text-center'>
                   <div className='flex justify-center mb-3'>
@@ -140,8 +140,8 @@ export default function Contact() {
                     ))}
                   </div>
                   <p className='text-gray-600 font-lora italic leading-relaxed'>
-                    &quot;Les meilleurs raviolis de Paris ! L&apos;accueil est chaleureux 
-                    et l&apos;authenticité des plats nous transporte directement en Chine.&quot;
+                    &quot;Les meilleurs raviolis de Paris ! L&apos;accueil est chaleureux et
+                    l&apos;authenticité des plats nous transporte directement en Chine.&quot;
                   </p>
                   <p className='text-sm text-gray-500 font-lora mt-3'>- Marie L.</p>
                 </div>
@@ -153,8 +153,8 @@ export default function Contact() {
                     ))}
                   </div>
                   <p className='text-gray-600 font-lora italic leading-relaxed text-center'>
-                    &quot;Un voyage culinaire exceptionnel ! Le service est impeccable 
-                    et chaque plat est une découverte.&quot;
+                    &quot;Un voyage culinaire exceptionnel ! Le service est impeccable et chaque
+                    plat est une découverte.&quot;
                   </p>
                   <p className='text-sm text-gray-500 font-lora mt-3 text-center'>- Pierre M.</p>
                 </div>

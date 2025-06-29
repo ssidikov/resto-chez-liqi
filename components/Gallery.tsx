@@ -8,48 +8,48 @@ const galleryImages = [
   {
     src: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Raviolis frais faits maison',
-    category: 'food'
+    category: 'food',
   },
   {
     src: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Nouilles traditionnelles chinoises',
-    category: 'food'
+    category: 'food',
   },
   {
     src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Ambiance chaleureuse du restaurant',
-    category: 'interior'
+    category: 'interior',
   },
   {
     src: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Tempura de crevettes croustillantes',
-    category: 'food'
+    category: 'food',
   },
   {
     src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Chef en action dans la cuisine',
-    category: 'kitchen'
+    category: 'kitchen',
   },
   {
     src: 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Nems dorés et croustillants',
-    category: 'food'
+    category: 'food',
   },
   {
     src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Salle de restaurant élégante',
-    category: 'interior'
+    category: 'interior',
   },
   {
     src: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Desserts asiatiques raffinés',
-    category: 'food'
+    category: 'food',
   },
   {
     src: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Cérémonie du thé traditionnel',
-    category: 'drinks'
-  }
+    category: 'drinks',
+  },
 ]
 
 const categories = [
@@ -64,18 +64,15 @@ export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
-  const filteredImages = activeCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory)
+  const filteredImages =
+    activeCategory === 'all'
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeCategory)
 
   return (
     <section id='gallery' className='relative py-20 overflow-hidden'>
       {/* Background */}
-      <div className='absolute inset-0'>
-        <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black' />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(220,38,38,0.1)_0%,transparent_50%)]' />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,191,36,0.1)_0%,transparent_50%)]' />
-      </div>
+      <div className='absolute inset-0 bg-black/80'></div>
 
       <div className='relative z-10 max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Header */}
@@ -84,8 +81,8 @@ export default function Gallery() {
             Galerie 画廊
           </h2>
           <p className='text-lg font-lora text-gray-300 max-w-3xl mx-auto'>
-            Découvrez l&apos;atmosphère chaleureuse de notre restaurant et la beauté de nos créations culinaires 
-            à travers cette sélection de photos qui racontent notre histoire.
+            Découvrez l&apos;atmosphère chaleureuse de notre restaurant et la beauté de nos
+            créations culinaires à travers cette sélection de photos qui racontent notre histoire.
           </p>
         </div>
 
@@ -117,7 +114,6 @@ export default function Gallery() {
                 animation: 'cardReveal 0.8s ease-out both',
               }}
               onClick={() => setSelectedImage(index)}>
-              
               <div className='relative aspect-square'>
                 <Image
                   src={image.src}
@@ -125,10 +121,10 @@ export default function Gallery() {
                   fill
                   className='object-cover group-hover:scale-110 transition-transform duration-700'
                 />
-                
+
                 {/* Overlay */}
                 <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-                
+
                 {/* Caption */}
                 <div className='absolute bottom-0 left-0 right-0 p-6 text-white transform translateY-full group-hover:translateY-0 transition-transform duration-300'>
                   <p className='font-lora text-sm leading-relaxed'>{image.alt}</p>
@@ -136,8 +132,17 @@ export default function Gallery() {
 
                 {/* Zoom indicator */}
                 <div className='absolute top-4 right-4 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                  <svg className='w-4 h-4 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7' />
+                  <svg
+                    className='w-4 h-4 text-white'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'
+                    />
                   </svg>
                 </div>
               </div>
@@ -158,14 +163,14 @@ export default function Gallery() {
 
       {/* Modal for enlarged image */}
       {selectedImage !== null && (
-        <div className='fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4'>
+        <div className='fixed inset-0 bg-black/80/90 backdrop-blur-sm z-50 flex items-center justify-center p-4'>
           <div className='relative max-w-4xl max-h-full'>
             <button
               onClick={() => setSelectedImage(null)}
               className='absolute -top-12 right-0 text-white hover:text-accent transition-colors z-10'>
               <XMarkIcon className='h-8 w-8' />
             </button>
-            
+
             <div className='relative rounded-2xl overflow-hidden'>
               <Image
                 src={filteredImages[selectedImage].src}
@@ -174,9 +179,11 @@ export default function Gallery() {
                 height={600}
                 className='max-h-[80vh] w-auto object-contain'
               />
-              
+
               <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6'>
-                <p className='text-white font-lora text-center'>{filteredImages[selectedImage].alt}</p>
+                <p className='text-white font-lora text-center'>
+                  {filteredImages[selectedImage].alt}
+                </p>
               </div>
             </div>
           </div>
