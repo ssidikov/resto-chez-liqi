@@ -390,8 +390,14 @@ export function Menu() {
             <a href='tel:0782886705'>
               <Button
                 size='lg'
-                className='bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl'>
-                Réserver une table : 07 82 88 67 05
+                className='bg-red-600 hover:bg-red-700 text-white px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto'>
+                <span className='block sm:hidden text-center'>
+                  Réserver une table<br />
+                  <span className='font-bold'>07 82 88 67 05</span>
+                </span>
+                <span className='hidden sm:block'>
+                  Réserver une table : 07 82 88 67 05
+                </span>
               </Button>
             </a>
           </div>
