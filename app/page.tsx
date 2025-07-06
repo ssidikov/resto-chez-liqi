@@ -1,21 +1,21 @@
-import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Carte from '@/components/Carte'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
-import ScrollToTop from '@/components/ScrollToTop'
+import { Header } from "./components/header"
+import { Hero } from "./components/hero"
+import { About } from "./components/about"
+import { Menu } from "./components/menu"
+import { Contact } from "./components/contact"
+import { Testimonials } from "./components/testimonials"
+import { Footer } from "./components/footer"
 
-export default function Page() {
+export default function Home() {
   return (
-    <>
+    <main className="min-h-screen">
       <Header />
       <Hero />
       <About />
-      <Carte />
+      <Menu />
       <Contact />
+      <Testimonials />
       <Footer />
-      <ScrollToTop />
-    </>
+    </main>
   )
 }
