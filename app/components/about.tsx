@@ -32,7 +32,7 @@ export function About() {
                 imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
               }`}>
               <LazyImage
-                src='/images/about-sculpture.jpg'
+                src='/images/about-sculpture.webp'
                 alt="Sculpture en bois traditionnelle représentant l'art et la culture au restaurant Chez Liqi"
                 className='w-full h-full hover:scale-105 transition-transform duration-500'
               />
@@ -84,8 +84,8 @@ export function About() {
               <p>
                 Notre équipe accueillante vous garantit un service impeccable et une expérience
                 culinaire mémorable. Nous proposons également des options végétariennes et des menus
-                pour les groupes, permettant à chacun de savourer l&apos;authentique cuisine chinoise au
-                cœur de Paris.
+                pour les groupes, permettant à chacun de savourer l&apos;authentique cuisine
+                chinoise au cœur de Paris.
               </p>
             </div>
 

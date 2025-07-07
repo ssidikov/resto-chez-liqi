@@ -90,7 +90,7 @@ export function Hero() {
           <div className='relative animate-fade-in-right animation-delay-400 order-1 lg:order-2'>
             <div className='aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 bg-gradient-to-br from-stone-50 to-amber-50 group'>
               <LazyImage
-                src='/images/hero-interior.jpg'
+                src='/images/hero-interior.webp'
                 alt='Intérieur chaleureux du restaurant Chez Liqi avec murs en pierre et ambiance authentique'
                 className='w-full h-full group-hover:scale-105 transition-transform duration-700'
               />

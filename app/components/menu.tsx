@@ -25,7 +25,7 @@ const menuItems = {
       description: 'Salade fraîche de légumes de saison, vinaigrette maison',
       price: '3€90',
       badges: ['🌱 Végé'],
-      image: '/images/menu/salade-legumes-authentic.png',
+      image: '/images/menu/salade-legumes-authentic.webp',
     },
     {
       name: "Salade d'algues",
@@ -33,7 +33,7 @@ const menuItems = {
       description: 'Algues marines assaisonnées à la sauce sésame',
       price: '3€90',
       badges: ['Populaire', '🌱 Végé'],
-      image: '/images/menu/salade-algues-authentic.png',
+      image: '/images/menu/salade-algues-authentic.webp',
     },
     {
       name: 'Salade de Céleri aux cacahuètes et Champignons noirs',
@@ -41,7 +41,7 @@ const menuItems = {
       description: 'Céleri croquant, champignons noirs et cacahuètes',
       price: '4€90',
       badges: ['🌱 Végé'],
-      image: '/images/menu/salade-celeri-champignons-authentic.png',
+      image: '/images/menu/salade-celeri-champignons-authentic.webp',
     },
     {
       name: 'Concombre mariné au sésame, piment',
@@ -49,7 +49,7 @@ const menuItems = {
       description: 'Concombre frais mariné avec sésame et piment doux',
       price: '3€90',
       badges: ['Épicé', '🌱 Végé'],
-      image: '/images/menu/concombre-sesame-authentic.png',
+      image: '/images/menu/concombre-sesame-authentic.webp',
     },
     {
       name: 'Tempura crevettes 4 pièces',
@@ -57,7 +57,7 @@ const menuItems = {
       description: 'Crevettes panées à la japonaise, légères et croustillantes',
       price: '7€90',
       badges: ['Populaire'],
-      image: '/images/menu/tempura-crevettes-authentic.png',
+      image: '/images/menu/tempura-crevettes-authentic.webp',
     },
     {
       name: 'Raviolis et Gyoza 8 pièces',
@@ -65,7 +65,7 @@ const menuItems = {
       description: 'Raviolis traditionnels au choix : poulet, bœuf, crevettes ou légumes',
       price: '7€90',
       badges: ['Fait maison'],
-      image: '/images/menu/raviolis-gyoza-authentic.png',
+      image: '/images/menu/raviolis-gyoza-authentic.webp',
     },
     {
       name: 'Raviolis frits aux crevettes',
@@ -73,7 +73,7 @@ const menuItems = {
       description: 'Raviolis dorés et croustillants garnis aux crevettes',
       price: '8€90',
       badges: ['Populaire'],
-      image: '/images/menu/raviolis-gyoza-authentic.png',
+      image: '/images/menu/raviolis-gyoza-authentic.webp',
     },
     {
       name: 'Nems 4 pièces',
@@ -81,7 +81,7 @@ const menuItems = {
       description: 'Rouleaux de printemps dorés au choix : poulet, crevettes ou légumes',
       price: '5€90',
       badges: ['Populaire'],
-      image: '/images/menu/nems-authentic.png',
+      image: '/images/menu/nems-authentic.webp',
     },
   ],
   plats: [
@@ -91,7 +91,7 @@ const menuItems = {
       description: 'Morceaux de poulet marinés et frits, extra croustillants',
       price: '8€00',
       badges: [],
-      image: '/images/menu/poulet-frit-premium.png',
+      image: '/images/menu/poulet-frit-premium.webp',
     },
     {
       name: 'Nouilles au Poulet croustillant',
@@ -99,7 +99,7 @@ const menuItems = {
       description: 'Nouilles sautées au poulet épicé et légumes croquants',
       price: '10€90',
       badges: [],
-      image: '/images/menu/nouilles-poulet-piments.png',
+      image: '/images/menu/nouilles-poulet-piments.webp',
     },
     {
       name: 'Soupe de nouilles et de raviolis aux crevettes',
@@ -107,7 +107,7 @@ const menuItems = {
       description: 'Bouillon parfumé avec nouilles et raviolis aux crevettes',
       price: '11€90',
       badges: ['Populaire'],
-      image: '/images/menu/soupe-raviolis-crevettes-authentic.png',
+      image: '/images/menu/soupe-raviolis-crevettes-authentic.webp',
     },
     {
       name: 'Nouilles Zha Jiang au bœuf',
@@ -115,7 +115,7 @@ const menuItems = {
       description: 'Nouilles traditionnelles avec sauce aux haricots noirs et bœuf',
       price: '11€90',
       badges: [],
-      image: '/images/menu/nouilles-zha-jiang-authentic.png',
+      image: '/images/menu/nouilles-zha-jiang-authentic.webp',
     },
     {
       name: 'Nouilles au bouillon pur bœuf',
@@ -123,7 +123,7 @@ const menuItems = {
       description: 'Bouillon de bœuf traditionnel avec nouilles fraîches',
       price: '12€90',
       badges: [],
-      image: '/images/menu/bouillon-boeuf-authentic.png',
+      image: '/images/menu/bouillon-boeuf-authentic.webp',
     },
   ],
   nouilles: [
@@ -133,7 +133,7 @@ const menuItems = {
       description: 'Nouilles sautées au poulet épicé et légumes croquants',
       price: '10€90',
       badges: ['Épicé'],
-      image: '/images/menu/nouilles-poulet-piments.png',
+      image: '/images/menu/nouilles-poulet-piments.webp',
     },
     {
       name: 'Raviolis aux crevettes et sauce piquante',
@@ -141,7 +141,7 @@ const menuItems = {
       description: 'Raviolis dans un bouillon parfumé aux crevettes et sauce épicée',
       price: '11€90',
       badges: ['Épicé', 'Populaire'],
-      image: '/images/menu/soupe-raviolis-crevettes-authentic.png',
+      image: '/images/menu/soupe-raviolis-crevettes-authentic.webp',
     },
     {
       name: 'Nouilles style Zha Jiang aux légumes',
@@ -149,7 +149,7 @@ const menuItems = {
       description: 'Nouilles traditionnelles avec sauce aux haricots noirs',
       price: '10€90',
       badges: ['Populaire', '🌱 Végé'],
-      image: '/images/menu/nouilles-zha-jiang-detail.png',
+      image: '/images/menu/nouilles-zha-jiang-detail.webp',
     },
     {
       name: 'Lamen sautées aux légumes et aux œufs',
@@ -157,7 +157,7 @@ const menuItems = {
       description: 'Nouilles sautées avec œufs et légumes de saison',
       price: '10€90',
       badges: ['🌱 Végé'],
-      image: '/images/menu/lamen-sautees-crevettes.png',
+      image: '/images/menu/lamen-sautees-crevettes.webp',
     },
     {
       name: 'Riz sauté aux légumes',
@@ -165,7 +165,7 @@ const menuItems = {
       description: 'Riz sauté traditionnel aux œufs et légumes frais',
       price: '13€90',
       badges: ['🌱 Végé'],
-      image: '/images/riz-saute-legumes-premium.jpg',
+      image: '/images/riz-saute-legumes-premium.webp',
     },
     {
       name: 'Riz sauté au poulet croustillant',
@@ -173,7 +173,7 @@ const menuItems = {
       description: 'Riz sauté avec morceaux de poulet croustillant',
       price: '10€90',
       badges: [],
-      image: '/images/menu/riz-saute-poulet-premium.png',
+      image: '/images/menu/riz-saute-poulet-premium.webp',
     },
   ],
   desserts: [
@@ -184,7 +184,7 @@ const menuItems = {
         'Sélection de glaces artisanales - 1 boule. Parfums: Fraise/Vanille/Chocolat/Café/Framboise',
       price: '2€50',
       badges: ['🌱 Végé'],
-      image: '/images/glaces-artisanales.jpg',
+      image: '/images/glaces-artisanales.webp',
     },
     {
       name: 'Ananas frais',
@@ -192,7 +192,7 @@ const menuItems = {
       description: "Tranches d'ananas frais de saison",
       price: '4€00',
       badges: ['🌱 Végé'],
-      image: '/images/ananas-frais-tropical.jpg',
+      image: '/images/ananas-frais-tropical.webp',
     },
     {
       name: 'Nougat Chinois',
@@ -200,7 +200,7 @@ const menuItems = {
       description: 'Nougat traditionnel chinois aux arachides',
       price: '3€50',
       badges: ['🌱 Végé'],
-      image: '/images/nougat-chinois.jpg',
+      image: '/images/nougat-chinois.webp',
     },
   ],
   boissons: [
@@ -210,7 +210,7 @@ const menuItems = {
       description: 'Thé vert parfumé aux fleurs de jasmin',
       price: '3€90',
       badges: [],
-      image: '/images/the-jasmin-premium.jpg',
+      image: '/images/the-jasmin-premium.webp',
     },
     {
       name: 'Perrier 50cl',
@@ -218,7 +218,7 @@ const menuItems = {
       description: 'Eau gazeuse française rafraîchissante',
       price: '2€50',
       badges: ['🌱 Végé'],
-      image: '/images/perrier-eau-gazeuse.jpg',
+      image: '/images/perrier-eau-gazeuse.webp',
     },
     {
       name: 'Coca Cola/Fanta/Sprite',
@@ -226,7 +226,7 @@ const menuItems = {
       description: 'Sodas internationaux bien frais',
       price: '2€50',
       badges: ['🌱 Végé'],
-      image: '/images/sodas-frais.jpg',
+      image: '/images/sodas-frais.webp',
     },
     {
       name: 'Bière (Tsing Tao / Heineken)',
@@ -234,7 +234,7 @@ const menuItems = {
       description: 'Bière chinoise traditionnelle ou européenne',
       price: '3€90',
       badges: ['Populaire'],
-      image: '/images/bieres-asiatiques.jpg',
+      image: '/images/bieres-asiatiques.webp',
     },
     {
       name: "Jus d'orange",
@@ -242,7 +242,7 @@ const menuItems = {
       description: "Jus d'orange frais pressé",
       price: '2€50',
       badges: ['🌱 Végé'],
-      image: '/images/jus-orange-frais.jpg',
+      image: '/images/jus-orange-frais.webp',
     },
   ],
 }
@@ -384,8 +384,8 @@ export function Menu() {
               Prêt à déguster nos spécialités ?
             </h3>
             <p className='text-gray-600 mb-6'>
-              Réservez votre table dès maintenant et découvrez l&apos;authenticité de la cuisine chinoise
-              traditionnelle.
+              Réservez votre table dès maintenant et découvrez l&apos;authenticité de la cuisine
+              chinoise traditionnelle.
             </p>
             <a href='tel:0782886705'>
               <Button

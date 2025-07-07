@@ -2,37 +2,21 @@ import type { Metadata } from 'next'
 import { Inter, Dancing_Script } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 const dancingScript = Dancing_Script({
   subsets: ['latin'],
   variable: '--font-dancing-script',
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
   title: 'Chez Lìqí 醴琦餐厅',
   description: 'Restaurant chinois traditionnel à Paris',
-  generator: 'Next.js',
-  applicationName: 'Chez Lìqí',
-  keywords: [
-    'restaurant chinois',
-    'cuisine chinoise',
-    'Paris',
-    'restaurant traditionnel',
-    'gastronomie chinoise',
-    'restaurant asiatique',
-    'cuisine authentique',
-    'restaurant familial',
-    'restaurant à Paris',
-    'restaurant chinois Paris',
-    'restaurant gastronomique',
-    'restaurant chinois traditionnel',
-    'restaurant chinois authentique',
-    'restaurant chinois Paris 16',
-    'restaurant chinois 75016',
-    'restaurant chinois près de la Tour Eiffel',
-    'restaurant chinois près de la Seine',
-  ],
 }
 
 export default function RootLayout({
@@ -42,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={`${inter.className} ${dancingScript.variable}`}>
+      <body className={`${inter.className} ${dancingScript.variable} antialiased`}>
         {children}
       </body>
     </html>
