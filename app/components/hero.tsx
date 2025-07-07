@@ -69,18 +69,18 @@ export function Hero() {
             </div>
 
             <div className='flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-1200'>
-              <a href='tel:0782886705'>
+              <a href='tel:0782886705' className='w-full sm:w-auto'>
                 <Button
                   size='lg'
-                  className='bg-red-600 hover:bg-red-700 text-white px-8 py-3 transform hover:scale-105 transition-all duration-200'>
+                  className='bg-red-600 hover:bg-red-700 text-white px-8 py-3 transform hover:scale-105 transition-all duration-200 w-full sm:w-auto'>
                   Réserver une table
                 </Button>
               </a>
-              <a href='#carte'>
+              <a href='#carte' className='w-full sm:w-auto'>
                 <Button
                   size='lg'
                   variant='outline'
-                  className='border-red-600 text-red-600 hover:bg-red-50 hover:text-red-600 px-8 py-3 bg-transparent transform hover:scale-105 transition-all duration-200'>
+                  className='border-red-600 text-red-600 hover:bg-red-50 hover:text-red-600 px-8 py-3 bg-transparent transform hover:scale-105 transition-all duration-200 w-full sm:w-auto'>
                   Voir la carte
                 </Button>
               </a>

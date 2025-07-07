@@ -4,6 +4,8 @@ import { MapPin, Clock, Phone, Mail } from 'lucide-react'
 import { DecorativePattern } from './decorative-pattern'
 import { FoodIllustration } from './food-illustration'
 import { WaveDivider } from './wave-divider'
+import { EmbeddedMap } from './embedded-map'
+// import { GoogleMap } from './google-map' // Uncomment to use full Google Maps integration
 
 export function Contact() {
   return (
@@ -112,22 +114,24 @@ export function Contact() {
 
           {/* Map */}
           <div className='space-y-6'>
-            <Card className='hover:shadow-lg '>
-              <CardContent className='p-6'>
+            <Card className='rounded-lg border text-card-foreground shadow-sm bg-gray-100 border-gray-200'>
+              <CardContent className='p-6 bg-gray-100 shadow-gray-200'>
                 <h3 className='font-semibold text-gray-900 mb-4'>Plan Interactif</h3>
                 <div className='aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden'>
-                  <img
-                    src='/placeholder.svg?height=400&width=600'
-                    alt='Plan du restaurant Chez Liqi'
-                    className='w-full h-full object-cover'
-                  />
+                  <EmbeddedMap />
+                  {/* <GoogleMap /> - Uncomment to use full Google Maps integration with API key */}
                 </div>
-                <p className='text-sm text-gray-300 mt-2'>33 Rue Chanez, 75016 Paris</p>
-                <Button
-                  variant='outline'
-                  className='mt-3 w-full bg-transparent transform hover:scale-105 transition-all duration-200'>
-                  Cliquez pour ouvrir dans Google Maps
-                </Button>
+                <p className='text-sm text-gray-600 mt-2'>33 Rue Chanez, 75016 Paris</p>
+                <a
+                  href='https://maps.app.goo.gl/GgQqVkqqkMw1ASzs6'
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <Button
+                    variant='outline'
+                    className='mt-3 w-full bg-transparent transform hover:scale-105 transition-all duration-200 text-black'>
+                    Ouvrir dans Google Maps
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           </div>

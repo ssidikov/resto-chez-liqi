@@ -90,23 +90,23 @@ export function About() {
             </div>
 
             <div
-              className={`grid grid-cols-3 gap-4 pt-6 transition-all duration-1000 delay-500 ${
+              className={`grid grid-cols-3 gap-2 sm:gap-4 pt-6 transition-all duration-1000 delay-500 ${
                 contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}>
-              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-4 rounded-lg bg-white/80 backdrop-blur-sm'>
-                <div className='text-3xl mb-2'>🥟</div>
-                <div className='font-semibold text-gray-900'>Raviolis</div>
-                <div className='text-sm text-gray-600'>Fait maison</div>
+              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
+                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2'>🥟</div>
+                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Raviolis</div>
+                <div className='text-xs sm:text-sm text-gray-600'>Fait maison</div>
               </div>
-              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-4 rounded-lg bg-white/80 backdrop-blur-sm'>
-                <div className='text-3xl mb-2'>🍜</div>
-                <div className='font-semibold text-gray-900'>Nouilles</div>
-                <div className='text-sm text-gray-600'>Traditionnelles</div>
+              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
+                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2'>🍜</div>
+                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Nouilles</div>
+                <div className='text-xs sm:text-sm text-gray-600'>Traditionnelles</div>
               </div>
-              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-4 rounded-lg bg-white/80 backdrop-blur-sm'>
-                <div className='text-3xl mb-2'>🏮</div>
-                <div className='font-semibold text-gray-900'>Ambiance</div>
-                <div className='text-sm text-gray-600'>Authentique</div>
+              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
+                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2'>🏮</div>
+                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Ambiance</div>
+                <div className='text-xs sm:text-sm text-gray-600'>Authentique</div>
               </div>
             </div>
           </div>

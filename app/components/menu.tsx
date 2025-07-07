@@ -290,7 +290,7 @@ export function Menu() {
             <Button
               key={category.id}
               variant={activeCategory === category.id ? 'default' : 'outline'}
-              className={`px-6 py-3 bg-white transform hover:scale-105 transition-all duration-200 ${
+              className={`px-6 py-3 bg-white transform min-w-52 hover:scale-105 transition-all duration-200 ${
                 activeCategory === category.id
                   ? 'bg-red-600 hover:bg-red-700 text-white'
                   : 'border-red-200 text-gray-700 hover:bg-red-50 hover:text-red-600'
@@ -392,12 +392,11 @@ export function Menu() {
                 size='lg'
                 className='bg-red-600 hover:bg-red-700 text-white px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto'>
                 <span className='block sm:hidden text-center'>
-                  Réserver une table<br />
+                  Réserver une table
+                  <br />
                   <span className='font-bold'>07 82 88 67 05</span>
                 </span>
-                <span className='hidden sm:block'>
-                  Réserver une table : 07 82 88 67 05
-                </span>
+                <span className='hidden sm:block'>Réserver une table : 07 82 88 67 05</span>
               </Button>
             </a>
           </div>

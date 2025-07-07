@@ -3,13 +3,13 @@ import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Marie L.',
-    text: "Les meilleurs raviolis de Paris ! L'accueil est chaleureux et l'authenticité des plats nous transporte directement en Chine.",
+    name: 'Kim S',
+    text: 'Definitely a mom and pop style restaurant with amazing Chinese food!  Very fresh and so flavorful.  It doesn’t have a ton of choices but what they do have on the menu is excellent!',
     rating: 5,
   },
   {
-    name: 'Pierre M.',
-    text: 'Un voyage culinaire exceptionnel ! Le service est impeccable et chaque plat est une découverte.',
+    name: 'Victoria Chen',
+    text: 'I am a Chinese girl from Fujian China, and this place is absolutely incredible if you are after fresh, authentic, no-frills home-style Chinese food. The food here also won’t make you feel bloated or upset your tummy, and it reminds me of the food my mum would whip up when I got home hungry after school.',
     rating: 5,
   },
 ]
@@ -33,7 +33,7 @@ export function Testimonials() {
               </div>
               <span className='text-2xl font-bold text-gray-900'>4.8/5</span>
             </div>
-            <span className='text-gray-600'>Plus de 500 avis clients</span>
+            <span className='text-gray-600'>Plus de 111 avis clients</span>
           </div>
         </div>
 
