@@ -25,8 +25,8 @@ export function Footer() {
               <span className='text-red-400 ml-2'>丽琪餐厅</span>
             </h3>
             <p className='text-gray-300 leading-relaxed'>
-              Depuis 1995, nous vous invitons à découvrir l'art culinaire chinois traditionnel au
-              cœur de Paris. Notre passion pour l'authenticité et la qualité fait de chaque repas
+              Depuis 1995, nous vous invitons à découvrir l&apos;art culinaire chinois traditionnel au
+              cœur de Paris. Notre passion pour l&apos;authenticité et la qualité fait de chaque repas
               une expérience mémorable.
             </p>
             <div className='flex space-x-6 text-sm'>

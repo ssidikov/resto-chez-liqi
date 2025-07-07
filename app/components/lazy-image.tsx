@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
+import Image from "next/image"
 
 interface LazyImageProps {
   src: string
@@ -50,16 +51,16 @@ export function LazyImage({ src, alt, className = "", placeholder }: LazyImagePr
         </div>
       )}
       {isInView && (
-        <img
-          src={hasError ? "/placeholder.svg?height=300&width=400" : src}
+        <Image
+          src={hasError ? "/placeholder.svg" : src}
           alt={alt}
-          className={`w-full h-full object-cover transition-all duration-700 ${
+          fill
+          className={`object-cover transition-all duration-700 ${
             isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
           }`}
           onLoad={handleLoad}
           onError={handleError}
-          loading="lazy"
-          decoding="async"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       )}
       {isLoaded && !hasError && (

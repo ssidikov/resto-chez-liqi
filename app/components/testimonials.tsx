@@ -49,7 +49,7 @@ export function Testimonials() {
                   ))}
                 </div>
                 <blockquote className='text-gray-600 italic mb-4 text-lg leading-relaxed'>
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </blockquote>
                 <cite className='font-semibold text-gray-900'>- {testimonial.name}</cite>
               </CardContent>

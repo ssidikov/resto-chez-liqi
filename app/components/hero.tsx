@@ -35,7 +35,7 @@ export function Hero() {
                 <span className='text-xl text-gray-600 ml-2'>丽琪餐厅</span>
               </h2>
               <p className='text-xl text-gray-600 leading-relaxed animate-fade-in-up animation-delay-600'>
-                Découvrez l'authenticité de la cuisine chinoise traditionnelle dans le 16e
+                Découvrez l&apos;authenticité de la cuisine chinoise traditionnelle dans le 16e
                 arrondissement. Des saveurs ancestrales préparées avec passion dans un cadre
                 chaleureux et convivial.
               </p>

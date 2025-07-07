@@ -25,3 +25,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cache directories
+node_modules/.cache/
+.next/cache/
+
+# temporary files
+*.tmp
+*.temp
+cleanup*.bat
+test-*.bat
+
+# VS Code
+.vscode/settings.json
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini

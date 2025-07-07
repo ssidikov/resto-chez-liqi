@@ -84,7 +84,7 @@ export function About() {
               <p>
                 Notre équipe accueillante vous garantit un service impeccable et une expérience
                 culinaire mémorable. Nous proposons également des options végétariennes et des menus
-                pour les groupes, permettant à chacun de savourer l'authentique cuisine chinoise au
+                pour les groupes, permettant à chacun de savourer l&apos;authentique cuisine chinoise au
                 cœur de Paris.
               </p>
             </div>

@@ -384,7 +384,7 @@ export function Menu() {
               Prêt à déguster nos spécialités ?
             </h3>
             <p className='text-gray-600 mb-6'>
-              Réservez votre table dès maintenant et découvrez l'authenticité de la cuisine chinoise
+              Réservez votre table dès maintenant et découvrez l&apos;authenticité de la cuisine chinoise
               traditionnelle.
             </p>
             <a href='tel:0782886705'>

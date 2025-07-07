@@ -54,7 +54,7 @@ export function Contact() {
                 <div className='flex items-start space-x-4'>
                   <Clock className='w-6 h-6 text-red-600 mt-1' />
                   <div>
-                    <h3 className='font-semibold text-gray-900 mb-2'>Horaires d'ouverture</h3>
+                    <h3 className='font-semibold text-gray-900 mb-2'>Horaires d&apos;ouverture</h3>
                     <div className='space-y-1 text-gray-600'>
                       <p>
                         <span className='font-medium'>Lundi - Samedi</span>
@@ -100,8 +100,8 @@ export function Contact() {
               <CardContent className='p-6'>
                 <h3 className='font-semibold text-gray-900 mb-2'>Réservation Recommandée</h3>
                 <p className='text-gray-600 mb-4'>
-                  Pour garantir votre table et éviter l'attente, nous vous conseillons de réserver à
-                  l'avance par téléphone, surtout le week-end.
+                  Pour garantir votre table et éviter l&apos;attente, nous vous conseillons de réserver à
+                  l&apos;avance par téléphone, surtout le week-end.
                 </p>
                 <div className='flex justify-center'>
                   <Button className='bg-red-600 hover:bg-red-700 text-white transform hover:scale-105 transition-all duration-200'>
