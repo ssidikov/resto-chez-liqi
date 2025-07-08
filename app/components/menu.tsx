@@ -307,7 +307,7 @@ export function Menu() {
           {menuItems[activeCategory as keyof typeof menuItems]?.map((item, index) => (
             <Card
               key={index}
-              className={`border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden transform hover:scale-105 bg-white group h-full flex flex-col ${
+              className={`border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden transform bg-white group h-full flex flex-col ${
                 menuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}>

@@ -37,15 +37,6 @@ export function About() {
                 className='w-full h-full hover:scale-105 transition-transform duration-500'
               />
             </div>
-            <div
-              className={`absolute -top-6 -right-6 bg-red-600 text-white p-4 rounded-xl shadow-lg transition-all duration-1000 delay-300 ${
-                imageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
-              }`}>
-              <div className='text-center'>
-                <div className='text-xl font-bold'>Depuis</div>
-                <div className='text-2xl font-bold'>1995</div>
-              </div>
-            </div>
             <FoodIllustration
               type='tea'
               className='absolute -bottom-10 -left-10 opacity-80 -rotate-12 scale-75'
