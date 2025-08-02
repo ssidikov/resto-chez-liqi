@@ -17,6 +17,11 @@ const dancingScript = Dancing_Script({
 export const metadata: Metadata = {
   title: 'Chez Lìqí 醴琦餐厅',
   description: 'Restaurant chinois traditionnel à Paris',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({
