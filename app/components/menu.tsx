@@ -33,7 +33,7 @@ const menuItems = {
       english: 'Seaweed salad (Japanese style)',
       description: 'Algues marines assaisonnées à la sauce sésame',
       price: '4€90',
-      badges: ['Populaire', '🌱 Végé'],
+      badges: ['🌱 Végé'],
       image: '/images/menu/salade-algues-authentic.webp',
     },
     {
@@ -60,7 +60,7 @@ const menuItems = {
       english: 'Shrimp tempura (4 pcs)',
       description: 'Crevettes panées à la japonaise, légères et croustillantes',
       price: '7€90',
-      badges: ['Populaire'],
+      badges: [],
       image: '/images/menu/tempura-crevettes-authentic.webp',
     },
   ],
@@ -72,7 +72,7 @@ const menuItems = {
       description:
         'Raviolis traditionnels au choix : Gyoza aux légumes, Raviolis au bœuf, Raviolis aux crevettes',
       price: '7€90',
-      badges: ['Fait maison'],
+      badges: [],
       image: '/images/menu/raviolis-gyoza-authentic.webp',
     },
     {
@@ -81,7 +81,7 @@ const menuItems = {
       english: 'Fried shrimp dumplings',
       description: 'Raviolis dorés et croustillants garnis aux crevettes',
       price: '6€90',
-      badges: ['Populaire'],
+      badges: [],
       image: '/images/menu/raviolis-frits-aux-crevettes.webp',
     },
     {
@@ -90,7 +90,7 @@ const menuItems = {
       english: 'Spring rolls (4 pcs)',
       description: 'Rouleaux de printemps dorés au choix : poulet, crevettes ou légumes',
       price: '5€90',
-      badges: ['Populaire'],
+      badges: [],
       image: '/images/menu/nems-authentic.webp',
     },
     {
@@ -117,7 +117,7 @@ const menuItems = {
       english: 'Shrimp dumpling noodle soup',
       description: 'Bouillon parfumé avec nouilles et raviolis aux crevettes',
       price: '11€90',
-      badges: ['Populaire'],
+      badges: [],
       image: '/images/menu/soupe-raviolis-crevettes-authentic.webp',
     },
     {
@@ -153,7 +153,7 @@ const menuItems = {
       english: 'Spicy shrimp dumplings',
       description: 'Raviolis dans un bouillon parfumé aux crevettes et sauce épicée',
       price: '11€90',
-      badges: ['Épicé', 'Populaire'],
+      badges: ['Épicé'],
       image: '/images/menu/raviolis-aux-crevettes-et-sauce-piquante.webp',
     },
     {
@@ -162,7 +162,7 @@ const menuItems = {
       english: 'Zha Jiang noodles with vegetables',
       description: 'Nouilles traditionnelles avec sauce aux haricots noirs',
       price: '10€90',
-      badges: ['Populaire', '🌱 Végé'],
+      badges: ['🌱 Végé'],
       image: '/images/menu/Nouilles-style-Zha-Jiang-aux-légumes.webp',
     },
     {
@@ -275,7 +275,7 @@ const menuItems = {
       english: 'Beer (Chinese or European)',
       description: 'Bière chinoise traditionnelle ou européenne',
       price: '3€90',
-      badges: ['Populaire'],
+      badges: [],
       image: '/images/bieres-asiatiques.webp',
     },
     {
