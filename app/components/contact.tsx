@@ -9,7 +9,10 @@ import { EmbeddedMap } from './embedded-map'
 
 export function Contact() {
   return (
-    <section id='contact' className='py-20 bg-white relative'>
+    <section
+      id='contact'
+      className='py-20 bg-white relative'
+      aria-label='Nous trouver – Contact et horaires'>
       <WaveDivider position='top' color='fill-gray-50' />
 
       {/* Decorative elements */}
@@ -25,8 +28,9 @@ export function Contact() {
             <span className='text-red-600 ml-2'>联系我们</span>
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Situé au cœur de Paris, notre restaurant vous accueille dans une ambiance chaleureuse
-            pour partager les saveurs authentiques de la Chine.
+            Situé au cœur du <strong>16e arrondissement de Paris</strong>, à proximité du{' '}
+            <strong>métro Michel Ange Molitor</strong>, notre restaurant chinois vous accueille dans
+            une ambiance chaleureuse pour partager les saveurs authentiques de la Chine.
           </p>
         </div>
 
@@ -36,15 +40,20 @@ export function Contact() {
             <Card className='bg-gray-100 border-gray-200 '>
               <CardContent className='p-6'>
                 <div className='flex items-start space-x-4'>
-                  <MapPin className='w-6 h-6 text-red-600 mt-1' />
-                  <div>
+                  <MapPin className='w-6 h-6 text-red-600 mt-1' aria-hidden='true' />
+                  <address className='not-italic'>
                     <h3 className='font-semibold text-gray-900 mb-2'>Adresse</h3>
-                    <p className='text-gray-600'>33 Rue Chanez</p>
-                    <p className='text-gray-600'>75016 Paris, France</p>
+                    <p className='text-gray-600' itemProp='streetAddress'>
+                      33 Rue Chanez
+                    </p>
+                    <p className='text-gray-600'>
+                      <span itemProp='postalCode'>75016</span>{' '}
+                      <span itemProp='addressLocality'>Paris</span>, France
+                    </p>
                     <p className='text-sm text-red-600 mt-1'>
                       Métro: Michel Ange Molitor (Lignes 9, 10)
                     </p>
-                  </div>
+                  </address>
                 </div>
               </CardContent>
             </Card>
@@ -52,18 +61,23 @@ export function Contact() {
             <Card className='bg-gray-100 border-gray-200 '>
               <CardContent className='p-6'>
                 <div className='flex items-start space-x-4'>
-                  <Clock className='w-6 h-6 text-red-600 mt-1' />
+                  <Clock className='w-6 h-6 text-red-600 mt-1' aria-hidden='true' />
                   <div>
                     <h3 className='font-semibold text-gray-900 mb-2'>Horaires d&apos;ouverture</h3>
                     <div className='space-y-1 text-gray-600'>
                       <p>
                         <span className='font-medium'>Lundi - Samedi</span>
                       </p>
-                      <p>11h30 - 14h30, 18h30 - 22h30</p>
+                      <p>
+                        <time dateTime='11:30'>11h30</time> - <time dateTime='14:30'>14h30</time>,{' '}
+                        <time dateTime='18:30'>18h30</time> - <time dateTime='22:30'>22h30</time>
+                      </p>
                       <p>
                         <span className='font-medium'>Dimanche</span>
                       </p>
-                      <p>18h30 - 22h30</p>
+                      <p>
+                        <time dateTime='18:30'>18h30</time> - <time dateTime='22:30'>22h30</time>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -74,10 +88,15 @@ export function Contact() {
               <Card className='bg-gray-100 border-gray-200 '>
                 <CardContent className='p-6'>
                   <div className='flex items-center space-x-3'>
-                    <Phone className='w-5 h-5 text-red-600' />
+                    <Phone className='w-5 h-5 text-red-600' aria-hidden='true' />
                     <div>
                       <h4 className='font-medium text-gray-900'>Téléphone</h4>
-                      <p className='text-gray-600'>07 82 88 67 05</p>
+                      <a
+                        href='tel:0782886705'
+                        className='text-gray-600 hover:text-red-600 transition-colors'
+                        itemProp='telephone'>
+                        07 82 88 67 05
+                      </a>
                     </div>
                   </div>
                 </CardContent>
@@ -86,10 +105,15 @@ export function Contact() {
               <Card className='bg-gray-100 border-gray-200 '>
                 <CardContent className='p-6'>
                   <div className='flex items-center space-x-3'>
-                    <Mail className='w-5 h-5 text-red-600' />
+                    <Mail className='w-5 h-5 text-red-600' aria-hidden='true' />
                     <div>
                       <h4 className='font-medium text-gray-900'>Email</h4>
-                      <p className='text-gray-600'>contact@chezliqi.fr</p>
+                      <a
+                        href='mailto:contact@chezliqi.fr'
+                        className='text-gray-600 hover:text-red-600 transition-colors'
+                        itemProp='email'>
+                        contact@chezliqi.fr
+                      </a>
                     </div>
                   </div>
                 </CardContent>
@@ -100,13 +124,17 @@ export function Contact() {
               <CardContent className='p-6'>
                 <h3 className='font-semibold text-gray-900 mb-2'>Réservation Recommandée</h3>
                 <p className='text-gray-600 mb-4'>
-                  Pour garantir votre table et éviter l&apos;attente, nous vous conseillons de réserver à
-                  l&apos;avance par téléphone, surtout le week-end.
+                  Pour garantir votre table et éviter l&apos;attente, nous vous conseillons de
+                  réserver à l&apos;avance par téléphone, surtout le week-end.
                 </p>
                 <div className='flex justify-center'>
-                  <Button className='bg-red-600 hover:bg-red-700 text-white transform hover:scale-105 transition-all duration-200'>
-                    Appeler pour réserver : 07 82 88 67 05
-                  </Button>
+                  <a
+                    href='tel:0782886705'
+                    aria-label='Appeler pour réserver une table au restaurant Chez Liqi'>
+                    <Button className='bg-red-600 hover:bg-red-700 text-white transform hover:scale-105 transition-all duration-200'>
+                      Appeler pour réserver : 07 82 88 67 05
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -121,11 +149,14 @@ export function Contact() {
                   <EmbeddedMap />
                   {/* <GoogleMap /> - Uncomment to use full Google Maps integration with API key */}
                 </div>
-                <p className='text-sm text-gray-600 mt-2'>33 Rue Chanez, 75016 Paris</p>
+                <p className='text-sm text-gray-600 mt-2'>
+                  33 Rue Chanez, 75016 Paris – 16e arrondissement
+                </p>
                 <a
                   href='https://maps.app.goo.gl/GgQqVkqqkMw1ASzs6'
                   target='_blank'
-                  rel='noopener noreferrer'>
+                  rel='noopener noreferrer'
+                  aria-label='Ouvrir la localisation du restaurant Chez Liqi dans Google Maps'>
                   <Button
                     variant='outline'
                     className='mt-3 w-full bg-transparent transform hover:scale-105 transition-all duration-200 text-black'>

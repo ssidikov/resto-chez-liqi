@@ -314,7 +314,10 @@ export function Menu() {
   const { ref: menuRef, isVisible: menuVisible } = useScrollAnimation()
 
   return (
-    <section id='carte' className='py-20 bg-gray-50 relative'>
+    <section
+      id='carte'
+      className='py-20 bg-gray-50 relative'
+      aria-label='Notre carte – Menu du restaurant chinois Chez Liqi'>
       {/* Decorative elements */}
       <DecorativePattern className='top-20 left-10 opacity-10' color='text-red-300' />
       <DecorativePattern className='bottom-20 right-10 opacity-10' color='text-yellow-300' />
@@ -376,7 +379,7 @@ export function Menu() {
               <div className='aspect-[4/3] overflow-hidden relative flex-shrink-0'>
                 <LazyImage
                   src={item.image}
-                  alt={item.name}
+                  alt={`${item.name} – ${item.description} | Restaurant chinois Chez Liqi Paris 16e`}
                   className='w-full h-full group-hover:scale-110 transition-transform duration-700'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
@@ -399,12 +402,12 @@ export function Menu() {
                         badge === 'Populaire'
                           ? 'bg-red-600 hover:bg-red-700 text-white'
                           : badge === 'Épicé'
-                          ? 'bg-orange-100 text-orange-800 border-orange-200'
-                          : badge === '🌱 Végé'
-                          ? 'bg-green-100 text-green-800 border-green-200'
-                          : badge === 'Fait maison'
-                          ? 'bg-blue-100 text-blue-800 border-blue-200'
-                          : ''
+                            ? 'bg-orange-100 text-orange-800 border-orange-200'
+                            : badge === '🌱 Végé'
+                              ? 'bg-green-100 text-green-800 border-green-200'
+                              : badge === 'Fait maison'
+                                ? 'bg-blue-100 text-blue-800 border-blue-200'
+                                : ''
                       }`}>
                       {badge}
                     </Badge>

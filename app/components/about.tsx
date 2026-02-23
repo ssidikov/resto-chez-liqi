@@ -12,7 +12,7 @@ export function About() {
   const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation()
 
   return (
-    <section className='py-20 bg-white relative'>
+    <section id='about' className='py-20 bg-white relative' aria-label='À propos de Chez Liqi'>
       <WaveDivider position='top' color='fill-gray-50' />
 
       {/* Decorative elements */}
@@ -33,7 +33,7 @@ export function About() {
               }`}>
               <LazyImage
                 src='/images/about-sculpture.webp'
-                alt="Sculpture en bois traditionnelle représentant l'art et la culture au restaurant Chez Liqi"
+                alt="Sculpture en bois traditionnelle représentant l'art et la culture chinoise au restaurant Chez Liqi, Paris 16e arrondissement"
                 className='w-full h-full hover:scale-105 transition-transform duration-500'
               />
             </div>
@@ -60,23 +60,31 @@ export function About() {
                 contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}>
               <p>
-                Bienvenue Chez Liqi, un restaurant chinois authentique situé au 33 Rue Chanez, 75016
-                Paris. Plongez dans une ambiance chaleureuse et dégustez des plats traditionnels
-                chinois préparés avec des ingrédients frais et de qualité.
+                Bienvenue <strong>Chez Liqi</strong>, votre{' '}
+                <strong>restaurant chinois authentique</strong> situé au{' '}
+                <strong>33 Rue Chanez, dans le 16e arrondissement de Paris</strong> (75016), à
+                quelques pas du <strong>métro Michel Ange Molitor</strong> (lignes 9 et 10). Plongez
+                dans une ambiance chaleureuse et dégustez des plats traditionnels chinois préparés
+                avec des ingrédients frais et de qualité.
               </p>
 
               <p>
-                Notre carte propose une variété de saveurs exceptionnelles, des spécialités
-                régionales aux classiques intemporels. Que vous soyez amateur de nouilles sautées,
-                de raviolis vapeur ou de plats épicés, vous trouverez forcément votre bonheur chez
-                nous.
+                <strong>Depuis 1995</strong>, notre carte propose une variété de saveurs
+                exceptionnelles, des spécialités régionales aux classiques intemporels. Que vous
+                soyez amateur de <strong>nouilles sautées maison</strong>, de{' '}
+                <strong>raviolis vapeur</strong> ou de plats épicés, vous trouverez forcément votre
+                bonheur chez nous. Nos <strong>nouilles et raviolis sont faits maison</strong>{' '}
+                chaque jour avec des recettes traditionnelles transmises de génération en
+                génération.
               </p>
 
               <p>
                 Notre équipe accueillante vous garantit un service impeccable et une expérience
-                culinaire mémorable. Nous proposons également des options végétariennes et des menus
-                pour les groupes, permettant à chacun de savourer l&apos;authentique cuisine
-                chinoise au cœur de Paris.
+                culinaire mémorable au cœur du <strong>16e arrondissement</strong>. Nous proposons
+                également des <strong>options végétariennes</strong> et des{' '}
+                <strong>menus pour les groupes</strong>, permettant à chacun de savourer
+                l&apos;authentique cuisine chinoise à Paris. Livraison et plats à emporter également
+                disponibles.
               </p>
             </div>
 
@@ -85,19 +93,25 @@ export function About() {
                 contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}>
               <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
-                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2'>🥟</div>
+                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2' aria-hidden='true'>
+                  🥟
+                </div>
                 <div className='font-semibold text-gray-900 text-xs sm:text-base'>Raviolis</div>
                 <div className='text-xs sm:text-sm text-gray-600'>Fait maison</div>
               </div>
               <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
-                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2'>🍜</div>
+                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2' aria-hidden='true'>
+                  🍜
+                </div>
                 <div className='font-semibold text-gray-900 text-xs sm:text-base'>Nouilles</div>
                 <div className='text-xs sm:text-sm text-gray-600'>Traditionnelles</div>
               </div>
               <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
-                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2'>🏮</div>
-                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Ambiance</div>
-                <div className='text-xs sm:text-sm text-gray-600'>Authentique</div>
+                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2' aria-hidden='true'>
+                  🏮
+                </div>
+                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Depuis 1995</div>
+                <div className='text-xs sm:text-sm text-gray-600'>Paris 16e</div>
               </div>
             </div>
           </div>
