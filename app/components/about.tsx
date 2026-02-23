@@ -1,124 +1,122 @@
 'use client'
 
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { LazyImage } from './lazy-image'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { DecorativePattern } from './decorative-pattern'
-import { FoodIllustration } from './food-illustration'
-import { WaveDivider } from './wave-divider'
 
 export function About() {
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation()
-  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation()
-  const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation()
-
   return (
-    <section id='about' className='py-20 bg-white relative' aria-label='À propos de Chez Liqi'>
-      <WaveDivider position='top' color='fill-gray-50' />
-
-      {/* Decorative elements */}
-      <DecorativePattern className='top-20 right-10 opacity-10' color='text-red-200' />
-      <DecorativePattern className='bottom-40 left-10 opacity-10' color='text-yellow-200' />
-      <FoodIllustration type='rice' className='absolute top-40 left-5 opacity-10 -rotate-12' />
-      <FoodIllustration
-        type='dumpling'
-        className='absolute bottom-20 right-5 opacity-10 rotate-12'
+    <section id='about' className='py-24 md:py-32 bg-white relative' aria-label='Notre héritage'>
+      {/* Subtle Background Elements */}
+      <DecorativePattern
+        className='bottom-0 left-0 opacity-5 pointer-events-none'
+        color='text-imperial-red'
       />
 
-      <div className='container mx-auto px-4 relative z-10'>
-        <div className='grid lg:grid-cols-2 gap-12 items-center'>
-          <div ref={imageRef} className='relative'>
-            <div
-              className={`aspect-[4/3] rounded-2xl overflow-hidden shadow-xl transition-all duration-1000 ${
-                imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-              }`}>
-              <LazyImage
+      <div className='container mx-auto px-6 max-w-7xl relative z-10'>
+        <div className='grid lg:grid-cols-2 gap-16 lg:gap-24 items-center'>
+          {/* Asymmetrical Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: '-100px' }}
+            className='relative'>
+            {/* Main large image */}
+            <div className='aspect-[3/4] md:aspect-square lg:aspect-[4/5] w-full relative overflow-hidden bg-ink/5'>
+              <Image
                 src='/images/about-sculpture.webp'
-                alt="Sculpture en bois traditionnelle représentant l'art et la culture chinoise au restaurant Chez Liqi, Paris 16e arrondissement"
-                className='w-full h-full hover:scale-105 transition-transform duration-500'
+                alt="Sculpture en bois traditionnelle représentant l'art et la culture chinoise au restaurant Chez Liqi"
+                fill
+                className='object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out'
+                sizes='(max-width: 1024px) 100vw, 50vw'
               />
+              <div className='absolute inset-4 border border-white/20 pointer-events-none' />
             </div>
-            <FoodIllustration
-              type='tea'
-              className='absolute -bottom-10 -left-10 opacity-80 -rotate-12 scale-75'
-            />
-          </div>
 
-          <div className='space-y-6'>
-            <div ref={titleRef}>
-              <h2
-                className={`text-4xl font-bold text-gray-900 mb-2 transition-all duration-1000 ${
-                  titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}>
-                <span className='font-dancing-script text-5xl text-red-600'>À Propos</span>
-                <span className='text-red-600 ml-2'>关于我们</span>
+            {/* Floating decorative element (optional, could be a smaller image or stamp) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              className='absolute -bottom-8 -right-8 w-40 h-40 bg-porcelain shadow-2xl p-4 hidden md:block'>
+              <div className='w-full h-full border border-ink/10 flex items-center justify-center flex-col text-center'>
+                <span className='font-playfair text-3xl text-imperial-red'>100%</span>
+                <span className='text-xs uppercase tracking-widest text-ink/40 mt-1'>
+                  Fait Maison
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Editorial Content Section */}
+          <div className='flex flex-col justify-center'>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: '-100px' }}>
+              <h2 className='text-4xl md:text-5xl lg:text-6xl font-playfair text-ink mb-6 md:mb-10 leading-tight'>
+                Héritage &amp; <br />
+                <span className='italic text-imperial-red'>Savoir-Faire</span>
               </h2>
-            </div>
+            </motion.div>
 
-            <div
-              ref={contentRef}
-              className={`space-y-4 text-gray-600 leading-relaxed transition-all duration-1000 delay-200 ${
-                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: '-100px' }}
+              className='space-y-6 text-ink/70 font-light leading-relaxed text-lg'>
               <p>
-                Bienvenue <strong>Chez Liqi</strong>, votre{' '}
-                <strong>restaurant chinois authentique</strong> situé au{' '}
-                <strong>33 Rue Chanez, dans le 16e arrondissement de Paris</strong> (75016), à
-                quelques pas du <strong>métro Michel Ange Molitor</strong> (lignes 9 et 10). Plongez
-                dans une ambiance chaleureuse et dégustez des plats traditionnels chinois préparés
-                avec des ingrédients frais et de qualité.
+                Niché au cœur du{' '}
+                <strong className='font-normal text-ink'>16e arrondissement de Paris</strong>, à
+                quelques pas du métro Michel Ange Molitor, <strong>Chez Liqi</strong> est une
+                véritable ambassade de la gastronomie chinoise traditionnelle.
               </p>
 
               <p>
-                <strong>Depuis 1995</strong>, notre carte propose une variété de saveurs
-                exceptionnelles, des spécialités régionales aux classiques intemporels. Que vous
-                soyez amateur de <strong>nouilles sautées maison</strong>, de{' '}
-                <strong>raviolis vapeur</strong> ou de plats épicés, vous trouverez forcément votre
-                bonheur chez nous. Nos <strong>nouilles et raviolis sont faits maison</strong>{' '}
-                chaque jour avec des recettes traditionnelles transmises de génération en
-                génération.
+                <strong>Depuis toujours</strong>, notre établissement célèbre la richesse des
+                terroirs asiatiques. Loin des clichés, notre approche culinaire est une lettre
+                d&apos;amour aux recettes ancestrales, transmises de génération en génération.
+                L&apos;art du geste se retrouve dans chacune de nos préparations, notamment nos{' '}
+                <strong>nouilles et raviolis confectionnés à la main</strong> chaque matin.
               </p>
 
               <p>
-                Notre équipe accueillante vous garantit un service impeccable et une expérience
-                culinaire mémorable au cœur du <strong>16e arrondissement</strong>. Nous proposons
-                également des <strong>options végétariennes</strong> et des{' '}
-                <strong>menus pour les groupes</strong>, permettant à chacun de savourer
-                l&apos;authentique cuisine chinoise à Paris. Livraison et plats à emporter également
-                disponibles.
+                Dans un cadre pensé comme un écrin hors du temps, notre équipe veille à vous offrir
+                une parenthèse d&apos;élégance. De la sélection minutieuse d&apos;ingrédients frais
+                à la présentation soignée de nos assiettes, chaque détail est pensé pour éveiller
+                vos sens.
               </p>
-            </div>
+            </motion.div>
 
-            <div
-              className={`grid grid-cols-3 gap-2 sm:gap-4 pt-6 transition-all duration-1000 delay-500 ${
-                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>
-              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
-                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2' aria-hidden='true'>
-                  🥟
-                </div>
-                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Raviolis</div>
-                <div className='text-xs sm:text-sm text-gray-600'>Fait maison</div>
+            {/* Minimalist Stats / Pillars */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: '-100px' }}
+              className='grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-ink/10'>
+              <div>
+                <span className='block text-imperial-red text-sm uppercase tracking-widest font-semibold mb-2'>
+                  Fait Maison
+                </span>
+                <span className='text-ink/60 font-serif italic text-lg'>
+                  L&apos;art du geste quotidien
+                </span>
               </div>
-              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
-                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2' aria-hidden='true'>
-                  🍜
-                </div>
-                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Nouilles</div>
-                <div className='text-xs sm:text-sm text-gray-600'>Traditionnelles</div>
+              <div>
+                <span className='block text-imperial-red text-sm uppercase tracking-widest font-semibold mb-2'>
+                  Authenticité
+                </span>
+                <span className='text-ink/60 font-serif italic text-lg'>Recettes préservées</span>
               </div>
-              <div className='text-center transform hover:scale-105 transition-transform duration-200 shadow-sm shadow-slate-300 p-2 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm w-full'>
-                <div className='text-2xl sm:text-3xl mb-1 sm:mb-2' aria-hidden='true'>
-                  🏮
-                </div>
-                <div className='font-semibold text-gray-900 text-xs sm:text-base'>Depuis 1995</div>
-                <div className='text-xs sm:text-sm text-gray-600'>Paris 16e</div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-
-      <WaveDivider position='bottom' color='fill-gray-50' />
     </section>
   )
 }

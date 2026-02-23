@@ -1,175 +1,139 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { MapPin, Clock, Phone, Mail } from 'lucide-react'
+'use client'
+
+import { MapPin, Clock, Phone, ArrowRight } from 'lucide-react'
 import { DecorativePattern } from './decorative-pattern'
-import { FoodIllustration } from './food-illustration'
-import { WaveDivider } from './wave-divider'
 import { EmbeddedMap } from './embedded-map'
-// import { GoogleMap } from './google-map' // Uncomment to use full Google Maps integration
+import { motion } from 'framer-motion'
 
 export function Contact() {
   return (
     <section
       id='contact'
-      className='py-20 bg-white relative'
+      className='py-24 md:py-32 bg-porcelain relative'
       aria-label='Nous trouver – Contact et horaires'>
-      <WaveDivider position='top' color='fill-gray-50' />
+      {/* Subtle Background Elements */}
+      <DecorativePattern className='top-0 right-0 opacity-5 pointer-events-none' color='text-ink' />
 
-      {/* Decorative elements */}
-      <DecorativePattern className='top-20 right-10 opacity-10' color='text-red-200' />
-      <DecorativePattern className='bottom-40 left-10 opacity-10' color='text-yellow-200' />
-      <FoodIllustration type='tea' className='absolute top-40 left-5 opacity-10 -rotate-12' />
-      <FoodIllustration type='rice' className='absolute bottom-20 right-5 opacity-10 rotate-12' />
-
-      <div className='container mx-auto px-4 relative z-10'>
-        <div className='text-center mb-12'>
-          <h2 className='text-4xl font-bold text-gray-900 mb-4'>
-            <span className='font-dancing-script text-5xl text-red-600'>Nous Trouver</span>
-            <span className='text-red-600 ml-2'>联系我们</span>
+      <div className='container mx-auto px-6 max-w-7xl relative z-10'>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: '-100px' }}
+          className='flex flex-col items-center mb-16 md:mb-24 text-center'>
+          <span className='text-imperial-red font-semibold tracking-[0.2em] uppercase text-sm mb-4'>
+            Nous Trouver
+          </span>
+          <h2 className='text-4xl md:text-5xl lg:text-6xl font-playfair text-ink'>
+            Informations <span className='text-imperial-red ml-2 italic'>联系我们</span>
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Situé au cœur du <strong>16e arrondissement de Paris</strong>, à proximité du{' '}
-            <strong>métro Michel Ange Molitor</strong>, notre restaurant chinois vous accueille dans
-            une ambiance chaleureuse pour partager les saveurs authentiques de la Chine.
-          </p>
-        </div>
+        </motion.div>
 
-        <div className='grid lg:grid-cols-2 gap-12'>
-          {/* Contact Information */}
-          <div className='space-y-8'>
-            <Card className='bg-gray-100 border-gray-200 '>
-              <CardContent className='p-6'>
-                <div className='flex items-start space-x-4'>
-                  <MapPin className='w-6 h-6 text-red-600 mt-1' aria-hidden='true' />
-                  <address className='not-italic'>
-                    <h3 className='font-semibold text-gray-900 mb-2'>Adresse</h3>
-                    <p className='text-gray-600' itemProp='streetAddress'>
-                      33 Rue Chanez
-                    </p>
-                    <p className='text-gray-600'>
-                      <span itemProp='postalCode'>75016</span>{' '}
-                      <span itemProp='addressLocality'>Paris</span>, France
-                    </p>
-                    <p className='text-sm text-red-600 mt-1'>
-                      Métro: Michel Ange Molitor (Lignes 9, 10)
-                    </p>
-                  </address>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className='bg-gray-100 border-gray-200 '>
-              <CardContent className='p-6'>
-                <div className='flex items-start space-x-4'>
-                  <Clock className='w-6 h-6 text-red-600 mt-1' aria-hidden='true' />
-                  <div>
-                    <h3 className='font-semibold text-gray-900 mb-2'>Horaires d&apos;ouverture</h3>
-                    <div className='space-y-1 text-gray-600'>
-                      <p>
-                        <span className='font-medium'>Lundi - Samedi</span>
-                      </p>
-                      <p>
-                        <time dateTime='11:30'>11h30</time> - <time dateTime='14:30'>14h30</time>,{' '}
-                        <time dateTime='18:30'>18h30</time> - <time dateTime='22:30'>22h30</time>
-                      </p>
-                      <p>
-                        <span className='font-medium'>Dimanche</span>
-                      </p>
-                      <p>
-                        <time dateTime='18:30'>18h30</time> - <time dateTime='22:30'>22h30</time>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-              <Card className='bg-gray-100 border-gray-200 '>
-                <CardContent className='p-6'>
-                  <div className='flex items-center space-x-3'>
-                    <Phone className='w-5 h-5 text-red-600' aria-hidden='true' />
-                    <div>
-                      <h4 className='font-medium text-gray-900'>Téléphone</h4>
-                      <a
-                        href='tel:0782886705'
-                        className='text-gray-600 hover:text-red-600 transition-colors'
-                        itemProp='telephone'>
-                        07 82 88 67 05
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className='bg-gray-100 border-gray-200 '>
-                <CardContent className='p-6'>
-                  <div className='flex items-center space-x-3'>
-                    <Mail className='w-5 h-5 text-red-600' aria-hidden='true' />
-                    <div>
-                      <h4 className='font-medium text-gray-900'>Email</h4>
-                      <a
-                        href='mailto:contact@chezliqi.fr'
-                        className='text-gray-600 hover:text-red-600 transition-colors'
-                        itemProp='email'>
-                        contact@chezliqi.fr
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card className='bg-red-50 border-red-200 '>
-              <CardContent className='p-6'>
-                <h3 className='font-semibold text-gray-900 mb-2'>Réservation Recommandée</h3>
-                <p className='text-gray-600 mb-4'>
-                  Pour garantir votre table et éviter l&apos;attente, nous vous conseillons de
-                  réserver à l&apos;avance par téléphone, surtout le week-end.
+        <div className='grid lg:grid-cols-12 gap-16 lg:gap-24 items-start'>
+          {/* Contact Details Column */}
+          <div className='lg:col-span-5 space-y-12'>
+            {/* Address */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
+              viewport={{ once: true }}
+              className='group'>
+              <h3 className='font-playfair text-2xl text-ink mb-6 flex items-center gap-3'>
+                <MapPin className='w-5 h-5 text-imperial-red' aria-hidden='true' />
+                Adresse
+              </h3>
+              <address className='not-italic text-ink/70 font-light leading-relaxed text-lg pl-8'>
+                <p itemProp='streetAddress'>33 Rue Chanez</p>
+                <p>
+                  <span itemProp='postalCode'>75016</span>{' '}
+                  <span itemProp='addressLocality'>Paris</span>, France
                 </p>
-                <div className='flex justify-center'>
-                  <a
-                    href='tel:0782886705'
-                    aria-label='Appeler pour réserver une table au restaurant Chez Liqi'>
-                    <Button className='bg-red-600 hover:bg-red-700 text-white transform hover:scale-105 transition-all duration-200'>
-                      Appeler pour réserver : 07 82 88 67 05
-                    </Button>
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Map */}
-          <div className='space-y-6'>
-            <Card className='rounded-lg border text-card-foreground shadow-sm bg-gray-100 border-gray-200'>
-              <CardContent className='p-6 bg-gray-100 shadow-gray-200'>
-                <h3 className='font-semibold text-gray-900 mb-4'>Plan Interactif</h3>
-                <div className='aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden'>
-                  <EmbeddedMap />
-                  {/* <GoogleMap /> - Uncomment to use full Google Maps integration with API key */}
-                </div>
-                <p className='text-sm text-gray-600 mt-2'>
-                  33 Rue Chanez, 75016 Paris – 16e arrondissement
+                <p className='text-sm text-ink/40 mt-2 font-serif italic'>
+                  Métro: Michel Ange Molitor (Lignes 9, 10)
                 </p>
+              </address>
+            </motion.div>
+
+            <div className='w-full h-px bg-ink/10' />
+
+            {/* Hours */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+              viewport={{ once: true }}>
+              <h3 className='font-playfair text-2xl text-ink mb-6 flex items-center gap-3'>
+                <Clock className='w-5 h-5 text-imperial-red' aria-hidden='true' />
+                Horaires
+              </h3>
+              <div className='text-ink/70 font-light leading-relaxed text-lg pl-8 space-y-4'>
+                <div>
+                  <span className='block text-ink font-medium mb-1'>Lundi - Samedi</span>
+                  <time dateTime='11:30'>11h30</time> - <time dateTime='14:30'>14h30</time>
+                  <br />
+                  <time dateTime='18:30'>18h30</time> - <time dateTime='22:30'>22h30</time>
+                </div>
+                <div>
+                  <span className='block text-ink font-medium mb-1'>Dimanche</span>
+                  <time dateTime='18:30'>18h30</time> - <time dateTime='22:30'>22h30</time>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className='w-full h-px bg-ink/10' />
+
+            {/* Direct Contact */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+              viewport={{ once: true }}
+              className='space-y-6'>
+              <h3 className='font-playfair text-2xl text-ink mb-6 flex items-center gap-3'>
+                <Phone className='w-5 h-5 text-imperial-red' aria-hidden='true' />
+                Réservation
+              </h3>
+              <div className='pl-8 space-y-4'>
                 <a
-                  href='https://maps.app.goo.gl/GgQqVkqqkMw1ASzs6'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  aria-label='Ouvrir la localisation du restaurant Chez Liqi dans Google Maps'>
-                  <Button
-                    variant='outline'
-                    className='mt-3 w-full bg-transparent transform hover:scale-105 transition-all duration-200 text-black'>
-                    Ouvrir dans Google Maps
-                  </Button>
+                  href='tel:0782886705'
+                  className='group flex items-center justify-between p-4 border border-ink/10 hover:border-imperial-red/50 hover:bg-white transition-all duration-500'
+                  itemProp='telephone'>
+                  <span className='text-ink font-light tracking-wide'>07 82 88 67 05</span>
+                  <ArrowRight className='w-4 h-4 text-imperial-red transform group-hover:translate-x-1 transition-transform' />
                 </a>
-              </CardContent>
-            </Card>
+              </div>
+            </motion.div>
           </div>
+
+          {/* Map Column */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className='lg:col-span-7 h-full'>
+            <div className='aspect-[4/3] lg:aspect-square w-full relative bg-ink/5 p-2'>
+              <div className='w-full h-full relative overflow-hidden'>
+                <EmbeddedMap />
+                <div className='absolute inset-0 border border-ink/10 pointer-events-none' />
+              </div>
+            </div>
+            <div className='mt-6 flex justify-end'>
+              <a
+                href='https://maps.app.goo.gl/GgQqVkqqkMw1ASzs6'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='inline-flex items-center gap-2 text-sm uppercase tracking-widest text-ink/60 hover:text-imperial-red transition-colors group'
+                aria-label='Ouvrir la localisation du restaurant Chez Liqi dans Google Maps'>
+                Ouvrir dans Google Maps
+                <ArrowRight className='w-4 h-4 transform group-hover:translate-x-1 transition-transform' />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
-
-      <WaveDivider position='bottom' color='fill-gray-900' />
     </section>
   )
 }

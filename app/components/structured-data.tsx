@@ -6,10 +6,10 @@ export function StructuredData() {
     name: 'Chez Liqi 醴琦餐厅',
     alternateName: ['Chez Lìqí', 'Chez Liqi Paris', '醴琦餐厅'],
     description:
-      'Restaurant chinois authentique dans le 16e arrondissement de Paris. Spécialités de nouilles et raviolis faits maison depuis 1995. Cuisine traditionnelle chinoise préparée avec des ingrédients frais et de qualité.',
+      'Restaurant chinois authentique dans le 16e arrondissement de Paris. Spécialités de nouilles et raviolis faits maison. Cuisine traditionnelle chinoise préparée avec des ingrédients frais et de qualité.',
     url: 'https://chez-liqi.vercel.app',
     telephone: '+33782886705',
-    email: 'contact@chezliqi.fr',
+
     image: [
       'https://chez-liqi.vercel.app/images/hero-interior.webp',
       'https://chez-liqi.vercel.app/logo.png',
@@ -40,7 +40,7 @@ export function StructuredData() {
         name: 'Île-de-France',
       },
     },
-    foundingDate: '1995',
+
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
@@ -220,7 +220,7 @@ export function StructuredData() {
     '@id': 'https://chez-liqi.vercel.app/#localbusiness',
     name: 'Chez Liqi – Restaurant Chinois Paris 16',
     description:
-      'Restaurant chinois authentique situé au 33 rue Chanez dans le 16e arrondissement de Paris, à proximité du métro Michel Ange Molitor. Spécialités de nouilles et raviolis faits maison depuis 1995.',
+      'Restaurant chinois authentique situé au 33 rue Chanez dans le 16e arrondissement de Paris, à proximité du métro Michel Ange Molitor. Spécialités de nouilles et raviolis faits maison.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '33 Rue Chanez',

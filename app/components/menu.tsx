@@ -1,19 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { LazyImage } from './lazy-image'
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { motion, AnimatePresence } from 'framer-motion'
 import { DecorativePattern } from './decorative-pattern'
-import { FoodIllustration } from './food-illustration'
+import Image from 'next/image'
 
 const categories = [
-  { id: 'entrees', name: 'Entrées', icon: '🥟', chinese: '前菜' },
-  { id: 'plats', name: 'Plats', icon: '🍛', chinese: '主食' },
-  { id: 'desserts', name: 'Desserts', icon: '🥮', chinese: '甜品' },
-  { id: 'boissons', name: 'Boissons', icon: '🍵', chinese: '饮料' },
+  { id: 'entrees', name: 'Entrées', chinese: '前菜' },
+  { id: 'plats', name: 'Plats Principaux', chinese: '主食' },
+  { id: 'desserts', name: 'Desserts', chinese: '甜品' },
+  { id: 'boissons', name: 'Boissons', chinese: '饮料' },
 ]
 
 const menuItems = {
@@ -21,43 +17,38 @@ const menuItems = {
     {
       name: 'Salade aux Légumes',
       chinese: '胡萝卜蔬菜沙拉',
-      english: 'Vegetable salad',
       description: 'Salade fraîche de légumes de saison, vinaigrette maison',
       price: '4€90',
-      badges: ['🌱 Végé'],
+      badges: ['Végétarien'],
       image: '/images/menu/salade-legumes-authentic.webp',
     },
     {
       name: "Salade d'algues",
       chinese: '日式风格沙拉',
-      english: 'Seaweed salad (Japanese style)',
       description: 'Algues marines assaisonnées à la sauce sésame',
       price: '4€90',
-      badges: ['🌱 Végé'],
+      badges: ['Végétarien'],
       image: '/images/menu/salade-algues-authentic.webp',
     },
     {
-      name: 'Salade de Céleri aux cacahuètes et Champignons noirs',
+      name: 'Salade de Céleri, cacahuètes et Champignons noirs',
       chinese: '花生木耳芹菜沙拉',
-      english: 'Celery salad with peanuts and black fungus',
       description: 'Céleri croquant, champignons noirs et cacahuètes',
       price: '5€90',
-      badges: ['🌱 Végé'],
+      badges: ['Végétarien'],
       image: '/images/menu/salade-celeri-champignons-authentic.webp',
     },
     {
-      name: 'Concombre mariné au sésame, piment',
+      name: 'Concombre mariné au sésame et piment',
       chinese: '凉拌黄瓜',
-      english: 'Marinated cucumber with sesame and chili',
       description: 'Concombre frais mariné avec sésame et piment doux',
       price: '4€90',
-      badges: ['Épicé', '🌱 Végé'],
+      badges: ['Épicé', 'Végétarien'],
       image: '/images/menu/concombre-sesame-authentic.webp',
     },
     {
-      name: 'Tempura crevettes 4 pièces',
+      name: 'Tempura de crevettes (4 pièces)',
       chinese: '日式炸虾',
-      english: 'Shrimp tempura (4 pcs)',
       description: 'Crevettes panées à la japonaise, légères et croustillantes',
       price: '7€90',
       badges: [],
@@ -66,28 +57,24 @@ const menuItems = {
   ],
   plats: [
     {
-      name: 'Raviolis et Gyoza 8 pièces',
+      name: 'Raviolis et Gyoza (8 pièces)',
       chinese: '饺子类',
-      english: 'Assorted dumplings and gyoza (8 pcs)',
-      description:
-        'Raviolis traditionnels au choix : Gyoza aux légumes, Raviolis au bœuf, Raviolis aux crevettes',
+      description: 'Raviolis faits maison au choix : légumes, bœuf, ou crevettes',
       price: '7€90',
-      badges: [],
+      badges: ['Signature'],
       image: '/images/menu/raviolis-gyoza-authentic.webp',
     },
     {
       name: 'Raviolis frits aux crevettes',
       chinese: '炸虾饺',
-      english: 'Fried shrimp dumplings',
       description: 'Raviolis dorés et croustillants garnis aux crevettes',
       price: '6€90',
       badges: [],
       image: '/images/menu/raviolis-frits-aux-crevettes.webp',
     },
     {
-      name: 'Nems 4 pièces',
+      name: 'Nems Traditionnels (4 pièces)',
       chinese: '春卷',
-      english: 'Spring rolls (4 pcs)',
       description: 'Rouleaux de printemps dorés au choix : poulet, crevettes ou légumes',
       price: '5€90',
       badges: [],
@@ -96,7 +83,6 @@ const menuItems = {
     {
       name: 'Poulet frit croustillant',
       chinese: '香酥脆鸡',
-      english: 'Crispy fried chicken',
       description: 'Morceaux de poulet marinés et frits, extra croustillants',
       price: '8€00',
       badges: [],
@@ -105,16 +91,14 @@ const menuItems = {
     {
       name: 'Nouilles au Poulet croustillant',
       chinese: '香酥鸡拌面',
-      english: 'Noodles with crispy chicken',
       description: 'Nouilles sautées au poulet épicé et légumes croquants',
       price: '11€90',
-      badges: [],
+      badges: ['Signature'],
       image: '/images/menu/nouilles-poulet-piments.webp',
     },
     {
-      name: 'Soupe de nouilles et de raviolis aux crevettes',
+      name: 'Soupe de nouilles et raviolis aux crevettes',
       chinese: '虾肉馄饨面',
-      english: 'Shrimp dumpling noodle soup',
       description: 'Bouillon parfumé avec nouilles et raviolis aux crevettes',
       price: '11€90',
       badges: [],
@@ -123,7 +107,6 @@ const menuItems = {
     {
       name: 'Nouilles Zha Jiang au bœuf',
       chinese: '牛肉炸酱面',
-      english: 'Beef Zha Jiang noodles',
       description: 'Nouilles traditionnelles avec sauce aux haricots noirs et bœuf',
       price: '11€90',
       badges: [],
@@ -132,16 +115,14 @@ const menuItems = {
     {
       name: 'Nouilles au bouillon pur bœuf',
       chinese: '风味鲜汤牛肉面',
-      english: 'Noodles in pure beef broth',
-      description: 'Bouillon de bœuf traditionnel avec nouilles fraîches',
+      description: 'Bouillon de bœuf traditionnel de plusieurs heures avec nouilles fraîches',
       price: '13€90',
-      badges: [],
+      badges: ['Signature'],
       image: '/images/menu/bouillon-boeuf-authentic.webp',
     },
     {
       name: 'Nouilles au poulet et piments',
       chinese: '辣椒鸡肉面',
-      english: 'Spicy chicken noodles',
       description: 'Nouilles sautées au poulet épicé et légumes croquants',
       price: '11€90',
       badges: ['Épicé'],
@@ -150,85 +131,51 @@ const menuItems = {
     {
       name: 'Raviolis aux crevettes et sauce piquante',
       chinese: '红油虾饺',
-      english: 'Spicy shrimp dumplings',
-      description: 'Raviolis dans un bouillon parfumé aux crevettes et sauce épicée',
+      description: 'Raviolis dans un bouillon parfumé aux crevettes et huile pimentée',
       price: '11€90',
-      badges: ['Épicé'],
+      badges: ['Épicé', 'Signature'],
       image: '/images/menu/raviolis-aux-crevettes-et-sauce-piquante.webp',
-    },
-    {
-      name: 'Nouilles style Zha Jiang aux légumes',
-      chinese: '杂酱面',
-      english: 'Zha Jiang noodles with vegetables',
-      description: 'Nouilles traditionnelles avec sauce aux haricots noirs',
-      price: '10€90',
-      badges: ['🌱 Végé'],
-      image: '/images/menu/Nouilles-style-Zha-Jiang-aux-légumes.webp',
     },
     {
       name: 'Lamen sautées aux crevettes',
       chinese: '虾仁炒面',
-      english: 'Stir-fried noodles with shrimp',
-      description: 'Nouilles sautées avec crevettes fraîches et légumes de saison',
+      description: 'Nouilles sautées au wok avec crevettes fraîches et légumes de saison',
       price: '12€90',
       badges: [],
       image: '/images/menu/lamen-sautees-crevettes.webp',
     },
     {
-      name: 'Lamen sautées aux légumes et aux œufs',
-      chinese: '鸡蛋素炒面',
-      english: 'Stir-fried noodles with vegetables and egg',
-      description: 'Nouilles sautées avec œufs et légumes de saison',
-      price: '10€90',
-      badges: ['🌱 Végé'],
-      image: '/images/menu/Lamen-sautées-aux-légumes-et-aux-œufs.webp',
-    },
-    {
       name: 'Riz sauté aux crevettes et Ananas',
       chinese: '菠萝虾仁炒饭',
-      english: 'Pineapple fried rice with shrimp',
       description: 'Riz sauté exotique aux crevettes et ananas frais',
       price: '13€90',
       badges: [],
       image: '/images/menu/riz-sauté-aux-crevettes-et-ananas.webp',
     },
-    {
-      name: 'Riz sauté au poulet croustillant',
-      chinese: '香酥鸡炒饭',
-      english: 'Fried rice with crispy chicken',
-      description: 'Riz sauté avec morceaux de poulet croustillant',
-      price: '11€90',
-      badges: [],
-      image: '/images/menu/Riz-sauté-au-poulet-croustillant.webp',
-    },
   ],
   desserts: [
     {
-      name: 'Ananas frais',
+      name: 'Ananas frais tranché',
       chinese: '新鲜菠萝',
-      english: 'Fresh pineapple slices',
       description: "Tranches d'ananas frais de saison",
       price: '4€50',
-      badges: ['🌱 Végé'],
+      badges: [],
       image: '/images/ananas-frais-tropical.webp',
     },
     {
       name: 'Nougat Chinois',
       chinese: '芝麻糖',
-      english: 'Chinese sesame nougat',
-      description: 'Nougat traditionnel chinois au sésame',
+      description: 'Nougat traditionnel chinois au sésame, croquant et parfumé',
       price: '3€50',
-      badges: ['🌱 Végé'],
+      badges: [],
       image: '/images/nougat-chinois.webp',
     },
     {
-      name: 'Glaces',
+      name: 'Glaces Artisanales (1 ou 2 boules)',
       chinese: '冰激凌',
-      english: 'Ice cream (1 or 2 scoops)',
-      description:
-        'Sélection de glaces artisanales - 1 boule ou 2 boules. Parfums: Fraise/Vanille/Chocolat/Café/Framboise',
+      description: 'Fraise, Vanille, Chocolat, Café, ou Framboise',
       price: '2€50 / 4€50',
-      badges: ['🌱 Végé'],
+      badges: [],
       image: '/images/glaces-artisanales.webp',
     },
   ],
@@ -236,236 +183,197 @@ const menuItems = {
     {
       name: 'Thé au Jasmin',
       chinese: '茉莉花茶',
-      english: 'Jasmine tea',
-      description: 'Thé vert parfumé aux fleurs de jasmin',
-      price: '3€',
+      description: 'Thé vert délicatement parfumé aux fleurs de jasmin',
+      price: '3€00',
       badges: [],
       image: '/images/the-jasmin-premium.webp',
     },
     {
-      name: 'Café',
-      chinese: '咖啡',
-      english: 'Coffee',
-      description: 'Café fraîchement préparé',
-      price: '2€50',
-      badges: [],
-      image: '/images/cafe-premium.webp',
-    },
-    {
-      name: 'Perrier 33cl',
-      chinese: '气泡水',
-      english: 'Sparkling water',
-      description: 'Eau gazeuse française rafraîchissante',
-      price: '2€50',
-      badges: ['🌱 Végé'],
-      image: '/images/perrier-eau-gazeuse.webp',
-    },
-    {
-      name: 'Coca / Coca Zéro / Fanta / Sprite',
-      chinese: '可乐类',
-      english: 'Soft drinks',
-      description: 'Sodas internationaux bien frais',
-      price: '2€50',
-      badges: ['🌱 Végé'],
-      image: '/images/sodas-frais.webp',
-    },
-    {
       name: 'Bière (Tsing Tao / Heineken)',
       chinese: '青岛 / 喜力',
-      english: 'Beer (Chinese or European)',
-      description: 'Bière chinoise traditionnelle ou européenne',
+      description: 'Bière chinoise traditionnelle ou classique européenne de 33cl',
       price: '3€90',
       badges: [],
       image: '/images/bieres-asiatiques.webp',
     },
     {
-      name: 'Evian 50cl',
-      chinese: '矿泉水',
-      english: 'Still water',
-      description: 'Eau minérale naturelle',
-      price: '2€50',
-      badges: ['🌱 Végé'],
-      image: '/images/evian-eau-minerale.webp',
-    },
-    {
-      name: "Jus d'orange",
-      chinese: '橙汁',
-      english: 'Orange juice',
-      description: "Jus d'orange frais pressé",
-      price: '2€50',
-      badges: ['🌱 Végé'],
-      image: '/images/jus-orange-frais.webp',
-    },
-    {
-      name: 'Vin Rouge / Vin Rosé',
+      name: 'Vin Rouge / Vin Rosé (Au verre)',
       chinese: '红酒 / 桃红酒',
-      english: 'Red wine / Rosé wine',
-      description: 'Sélection de vins français',
+      description: 'Sélection soignée de vins français pour accompagner votre repas',
       price: '3€00',
       badges: [],
       image: '/images/vin-rouge-rose-premium.webp',
+    },
+    {
+      name: 'Eaux & Sodas',
+      chinese: '矿泉水 / 汽水',
+      description: "Evian, Perrier, Coca-Cola, Fanta, Sprite, Jus d'orange",
+      price: '2€50',
+      badges: [],
+      image: '/images/sodas-frais.webp',
     },
   ],
 }
 
 export function Menu() {
-  const [activeCategory, setActiveCategory] = useState('entrees')
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation()
-  const { ref: menuRef, isVisible: menuVisible } = useScrollAnimation()
+  const [activeCategory, setActiveCategory] = useState('plats')
+  const [hoveredImage, setHoveredImage] = useState<string | null>(null)
 
   return (
     <section
       id='carte'
-      className='py-20 bg-gray-50 relative'
-      aria-label='Notre carte – Menu du restaurant chinois Chez Liqi'>
-      {/* Decorative elements */}
-      <DecorativePattern className='top-20 left-10 opacity-10' color='text-red-300' />
-      <DecorativePattern className='bottom-20 right-10 opacity-10' color='text-yellow-300' />
-      <FoodIllustration type='noodles' className='absolute top-40 right-5 opacity-10 rotate-12' />
-      <FoodIllustration
-        type='dumpling'
-        className='absolute bottom-40 left-5 opacity-10 -rotate-12'
-      />
+      className='py-24 md:py-32 bg-porcelain relative'
+      aria-label='Carte – Menu du restaurant'>
+      {/* Subtle Background Elements */}
+      <DecorativePattern className='top-0 right-0 opacity-5 pointer-events-none' color='text-ink' />
 
-      <div className='container mx-auto px-4 relative z-10'>
-        <div ref={titleRef} className='text-center mb-12'>
-          <h2
-            className={`text-4xl font-bold text-gray-900 mb-4 transition-all duration-1000 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}>
-            <span className='font-dancing-script text-5xl text-red-600'>Notre Carte</span>
-            <span className='text-red-600 ml-2'>菜单</span>
+      <div className='container mx-auto px-6 max-w-7xl relative z-10'>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: '-100px' }}
+          className='flex flex-col items-center mb-16 md:mb-24 text-center'>
+          <span className='text-imperial-red font-semibold tracking-[0.2em] uppercase text-sm mb-4'>
+            L&apos;Art de la Table
+          </span>
+          <h2 className='text-4xl md:text-5xl lg:text-6xl font-playfair text-ink'>
+            Notre Carte <span className='text-imperial-red ml-4 italic'>菜单</span>
           </h2>
-          <p
-            className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}>
-            Spécialités de raviolis et nouilles fait maison. Découvrez nos recettes traditionnelles
-            chinoises préparées avec des ingrédients frais et authentiques.
-          </p>
-        </div>
+        </motion.div>
 
-        {/* Category Navigation */}
-        <div
-          className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-400 ${
-            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+        {/* Categories Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className='flex flex-wrap justify-center gap-8 md:gap-12 mb-16'>
           {categories.map((category) => (
-            <Button
+            <button
               key={category.id}
-              variant={activeCategory === category.id ? 'default' : 'outline'}
-              className={`px-6 py-3 bg-white transform min-w-52 hover:scale-105 transition-all duration-200 ${
-                activeCategory === category.id
-                  ? 'bg-red-600 hover:bg-red-700 text-white'
-                  : 'border-red-200 text-gray-700 hover:bg-red-50 hover:text-red-600'
-              }`}
-              onClick={() => setActiveCategory(category.id)}>
-              <span className='mr-2'>{category.icon}</span>
-              {category.name} <span className='ml-1 text-sm'>{category.chinese}</span>
-            </Button>
-          ))}
-        </div>
-
-        {/* Menu Items */}
-        <div ref={menuRef} className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {menuItems[activeCategory as keyof typeof menuItems]?.map((item, index) => (
-            <Card
-              key={index}
-              className={`border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden transform bg-white group h-full flex flex-col ${
-                menuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}>
-              {/* Image Section - Fixed Height */}
-              <div className='aspect-[4/3] overflow-hidden relative flex-shrink-0'>
-                <LazyImage
-                  src={item.image}
-                  alt={`${item.name} – ${item.description} | Restaurant chinois Chez Liqi Paris 16e`}
-                  className='w-full h-full group-hover:scale-110 transition-transform duration-700'
+              onClick={() => setActiveCategory(category.id)}
+              className={`group flex flex-col items-center relative transition-colors duration-500 pb-2 ${
+                activeCategory === category.id ? 'text-imperial-red' : 'text-ink/60 hover:text-ink'
+              }`}>
+              <span className='font-playfair text-xl md:text-2xl mb-1'>{category.name}</span>
+              <span className='text-xs uppercase tracking-widest'>{category.chinese}</span>
+              {/* Active Underline Indicator */}
+              {activeCategory === category.id && (
+                <motion.div
+                  layoutId='activeCategory'
+                  className='absolute bottom-0 left-0 right-0 h-[1px] bg-imperial-red'
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
-
-                {/* Floating price badge */}
-                <div className='absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full font-bold text-sm shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0'>
-                  {item.price}
-                </div>
-              </div>
-
-              {/* Content Section - Flexible Height */}
-              <CardContent className='p-6 flex flex-col flex-grow'>
-                {/* Badges Section - Fixed Height */}
-                <div className='flex flex-wrap gap-2 mb-4 min-h-[28px]'>
-                  {item.badges.map((badge, badgeIndex) => (
-                    <Badge
-                      key={badgeIndex}
-                      variant={badge === 'Populaire' ? 'default' : 'secondary'}
-                      className={`text-xs ${
-                        badge === 'Populaire'
-                          ? 'bg-red-600 hover:bg-red-700 text-white'
-                          : badge === 'Épicé'
-                            ? 'bg-orange-100 text-orange-800 border-orange-200'
-                            : badge === '🌱 Végé'
-                              ? 'bg-green-100 text-green-800 border-green-200'
-                              : badge === 'Fait maison'
-                                ? 'bg-blue-100 text-blue-800 border-blue-200'
-                                : ''
-                      }`}>
-                      {badge}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Title Section - Fixed Height */}
-                <div className='mb-4 min-h-[80px] flex flex-col justify-start'>
-                  <h3 className='font-bold text-gray-900 text-lg leading-tight mb-1 line-clamp-2'>
-                    {item.name}
-                  </h3>
-                  <p className='text-sm text-red-600 font-medium font-dancing-script mb-1'>
-                    {item.chinese}
-                  </p>
-                  <p className='text-sm text-gray-500 italic'>{item.english}</p>
-                </div>
-
-                {/* Description Section - Flexible Height */}
-                <div className='flex-grow mb-4'>
-                  <p className='text-gray-600 text-sm leading-relaxed line-clamp-3'>
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Price Section - Fixed Height */}
-                <div className='flex justify-center items-center pt-4 border-t border-slate-200 mt-auto'>
-                  <span className='text-2xl font-bold text-red-600 font-dancing-script'>
-                    {item.price}
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
+              )}
+            </button>
           ))}
-        </div>
+        </motion.div>
 
-        <div className='text-center mt-16'>
-          <div className='bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto'>
-            <h3 className='text-2xl font-bold text-gray-900 mb-4 font-dancing-script'>
-              Prêt à déguster nos spécialités ?
-            </h3>
-            <p className='text-gray-600 mb-6'>
-              Réservez votre table dès maintenant et découvrez l&apos;authenticité de la cuisine
-              chinoise traditionnelle.
-            </p>
-            <a href='tel:0782886705'>
-              <Button
-                size='lg'
-                className='bg-red-600 hover:bg-red-700 text-white px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto'>
-                <span className='block sm:hidden text-center'>
-                  Réserver une table
-                  <br />
-                  <span className='font-bold'>07 82 88 67 05</span>
-                </span>
-                <span className='hidden sm:block'>Réserver une table : 07 82 88 67 05</span>
-              </Button>
-            </a>
+        {/* Menu Layout: 2 Columns (Image Left, List Right) */}
+        <div className='grid lg:grid-cols-12 gap-12 lg:gap-24 items-start'>
+          {/* Dynamic Image Display on Left (Responsive) */}
+          <div className='block lg:col-span-5 sticky top-24 lg:top-32 z-10'>
+            <div className='aspect-[4/3] sm:aspect-video lg:aspect-[3/4] w-full relative overflow-hidden bg-ink/5 shadow-2xl lg:shadow-none'>
+              <AnimatePresence mode='wait'>
+                <motion.div
+                  key={hoveredImage || menuItems[activeCategory as keyof typeof menuItems][0].image}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: 'easeOut' }}
+                  className='absolute inset-0'>
+                  <Image
+                    src={
+                      hoveredImage || menuItems[activeCategory as keyof typeof menuItems][0].image
+                    }
+                    alt='Plat signature du restaurant Chez Liqi'
+                    fill
+                    className='object-cover'
+                    sizes='(max-width: 1024px) 100vw, 40vw'
+                  />
+                  {/* Subtle elegant border overlay */}
+                  <div className='absolute inset-4 border border-white/20 pointer-events-none' />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Menu Items List on Right */}
+          <div className='lg:col-span-7 space-y-8 md:space-y-12'>
+            <AnimatePresence mode='wait'>
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5, staggerChildren: 0.1 }}
+                className='flex flex-col'>
+                {menuItems[activeCategory as keyof typeof menuItems]?.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+                    onMouseEnter={() => setHoveredImage(item.image)}
+                    className='group flex flex-col sm:flex-row justify-between items-start sm:items-end py-6 border-b border-ink/10 cursor-default hover:border-imperial-red/50 transition-colors duration-500'>
+                    <div className='max-w-md pr-4'>
+                      <div className='flex items-baseline gap-3 mb-2'>
+                        <h3 className='font-playfair text-xl md:text-2xl text-ink group-hover:text-imperial-red transition-colors duration-500'>
+                          {item.name}
+                        </h3>
+                        <span className='text-sm text-ink/40 font-serif'>{item.chinese}</span>
+                      </div>
+                      <p className='text-ink/60 font-light text-sm md:text-base leading-relaxed'>
+                        {item.description}
+                      </p>
+
+                      {/* Minimalist Tags */}
+                      {item.badges.length > 0 && (
+                        <div className='flex gap-3 mt-3'>
+                          {item.badges.map((badge, bIdx) => (
+                            <span
+                              key={bIdx}
+                              className={`text-xs uppercase tracking-widest ${
+                                badge === 'Signature'
+                                  ? 'text-imperial-red font-semibold'
+                                  : 'text-jade'
+                              }`}>
+                              • {badge}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className='mt-4 sm:mt-0 font-playfair text-2xl text-ink whitespace-nowrap group-hover:text-imperial-red transition-colors duration-500'>
+                      {item.price}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
+
+        {/* Footer CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className='mt-24 md:mt-32 text-center flex flex-col items-center'>
+          <div className='w-[1px] h-16 bg-imperial-red/30 mb-8' />
+          <p className='text-ink/60 font-playfair italic text-xl mb-6'>
+            Laissez-nous vous préparer une table
+          </p>
+          <a
+            href='tel:0782886705'
+            className='inline-block border border-ink hover:bg-ink hover:text-porcelain text-ink px-10 py-5 uppercase tracking-widest text-sm transition-all duration-500'>
+            Réserver au 07 82 88 67 05
+          </a>
+        </motion.div>
       </div>
     </section>
   )

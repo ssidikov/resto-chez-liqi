@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Dancing_Script } from 'next/font/google'
+import { Inter, Dancing_Script, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
+import { StickyMobileBar } from './components/sticky-mobile-bar'
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-sans',
 })
 
 const dancingScript = Dancing_Script({
@@ -13,6 +15,14 @@ const dancingScript = Dancing_Script({
   variable: '--font-dancing-script',
   weight: ['400', '500', '600', '700'],
   display: 'swap',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  style: ['normal', 'italic'],
 })
 
 const siteUrl = 'https://chez-liqi.vercel.app'
@@ -71,7 +81,7 @@ export const metadata: Metadata = {
     siteName: 'Chez Liqi 醴琦餐厅',
     title: 'Chez Liqi | Restaurant Chinois Authentique Paris 16e – Nouilles & Raviolis Maison',
     description:
-      'Depuis 1995, Chez Liqi vous invite à découvrir la cuisine chinoise traditionnelle au cœur du 16e arrondissement. Nouilles et raviolis faits maison, ingrédients frais, ambiance chaleureuse au 33 rue Chanez, Paris.',
+      'Chez Liqi vous invite à découvrir la cuisine chinoise traditionnelle au cœur du 16e arrondissement. Nouilles et raviolis faits maison, ingrédients frais, ambiance chaleureuse au 33 rue Chanez, Paris.',
     images: [
       {
         url: '/images/hero-interior.webp',
@@ -93,7 +103,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Chez Liqi | Restaurant Chinois Authentique Paris 16e',
     description:
-      'Nouilles & raviolis faits maison depuis 1995. Cuisine chinoise traditionnelle au 33 rue Chanez, Paris 16e. Réservation : 07 82 88 67 05.',
+      'Nouilles & raviolis faits maison. Cuisine chinoise traditionnelle au 33 rue Chanez, Paris 16e. Réservation : 07 82 88 67 05.',
     images: ['/images/hero-interior.webp'],
   },
   icons: {
@@ -117,9 +127,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+        <meta
+          name='google-site-verification'
+          content='QHFKwnQeFNd1ZCvodevFYVbLZanvP68b3ZyjNO2MZJk'
+        />
       </head>
-      <body className={`${inter.className} ${dancingScript.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${inter.className} ${dancingScript.variable} ${playfair.variable} bg-porcelain font-sans text-ink antialiased selection:bg-imperial-red selection:text-white`}>
         {children}
+        <StickyMobileBar />
         <Analytics />
       </body>
     </html>
