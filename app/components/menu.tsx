@@ -218,6 +218,7 @@ const menuItems = {
 export function Menu() {
   const [activeCategory, setActiveCategory] = useState('plats')
   const [hoveredImage, setHoveredImage] = useState<string | null>(null)
+  const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null)
 
   return (
     <section
@@ -253,7 +254,10 @@ export function Menu() {
           {categories.map((category) => (
             <button
               key={category.id}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={() => {
+                setActiveCategory(category.id)
+                setExpandedMobileItem(null)
+              }}
               className={`group flex flex-col items-center relative transition-colors duration-500 pb-2 ${
                 activeCategory === category.id ? 'text-imperial-red' : 'text-ink/60 hover:text-ink'
               }`}>
@@ -273,9 +277,9 @@ export function Menu() {
 
         {/* Menu Layout: 2 Columns (Image Left, List Right) */}
         <div className='grid lg:grid-cols-12 gap-12 lg:gap-24 items-start'>
-          {/* Dynamic Image Display on Left (Responsive) */}
-          <div className='block lg:col-span-5 sticky top-24 lg:top-32 z-10'>
-            <div className='aspect-[4/3] sm:aspect-video lg:aspect-[3/4] w-full relative overflow-hidden bg-ink/5 shadow-2xl lg:shadow-none'>
+          {/* Dynamic Image Display on Left (Visible on lg screens) */}
+          <div className='hidden lg:block lg:col-span-5 sticky top-24 lg:top-32 z-10'>
+            <div className='aspect-[3/4] w-full relative overflow-hidden bg-ink/5'>
               <AnimatePresence mode='wait'>
                 <motion.div
                   key={hoveredImage || menuItems[activeCategory as keyof typeof menuItems][0].image}
@@ -317,39 +321,69 @@ export function Menu() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
                     onMouseEnter={() => setHoveredImage(item.image)}
-                    className='group flex flex-col sm:flex-row justify-between items-start sm:items-end py-6 border-b border-ink/10 cursor-default hover:border-imperial-red/50 transition-colors duration-500'>
-                    <div className='max-w-md pr-4'>
-                      <div className='flex items-baseline gap-3 mb-2'>
-                        <h3 className='font-playfair text-xl md:text-2xl text-ink group-hover:text-imperial-red transition-colors duration-500'>
-                          {item.name}
-                        </h3>
-                        <span className='text-sm text-ink/40 font-serif'>{item.chinese}</span>
-                      </div>
-                      <p className='text-ink/60 font-light text-sm md:text-base leading-relaxed'>
-                        {item.description}
-                      </p>
-
-                      {/* Minimalist Tags */}
-                      {item.badges.length > 0 && (
-                        <div className='flex gap-3 mt-3'>
-                          {item.badges.map((badge, bIdx) => (
-                            <span
-                              key={bIdx}
-                              className={`text-xs uppercase tracking-widest ${
-                                badge === 'Signature'
-                                  ? 'text-imperial-red font-semibold'
-                                  : 'text-jade'
-                              }`}>
-                              • {badge}
-                            </span>
-                          ))}
+                    className='group flex flex-col border-b border-ink/10 py-6 lg:cursor-default'>
+                    <div
+                      className='flex flex-col sm:flex-row justify-between items-start sm:items-end w-full cursor-pointer lg:cursor-default hover:border-imperial-red/50 transition-colors duration-500'
+                      onClick={() =>
+                        setExpandedMobileItem(expandedMobileItem === item.name ? null : item.name)
+                      }>
+                      <div className='max-w-md pr-4'>
+                        <div className='flex items-baseline gap-3 mb-2'>
+                          <h3 className='font-playfair text-xl md:text-2xl text-ink group-hover:text-imperial-red transition-colors duration-500'>
+                            {item.name}
+                          </h3>
+                          <span className='text-sm text-ink/40 font-serif'>{item.chinese}</span>
                         </div>
-                      )}
+                        <p className='text-ink/60 font-light text-sm md:text-base leading-relaxed'>
+                          {item.description}
+                        </p>
+
+                        {/* Minimalist Tags */}
+                        {item.badges.length > 0 && (
+                          <div className='flex gap-3 mt-3'>
+                            {item.badges.map((badge, bIdx) => (
+                              <span
+                                key={bIdx}
+                                className={`text-xs uppercase tracking-widest ${
+                                  badge === 'Signature'
+                                    ? 'text-imperial-red font-semibold'
+                                    : 'text-jade'
+                                }`}>
+                                • {badge}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className='mt-4 sm:mt-0 font-playfair text-2xl text-ink whitespace-nowrap group-hover:text-imperial-red transition-colors duration-500'>
+                        {item.price}
+                      </div>
                     </div>
 
-                    <div className='mt-4 sm:mt-0 font-playfair text-2xl text-ink whitespace-nowrap group-hover:text-imperial-red transition-colors duration-500'>
-                      {item.price}
-                    </div>
+                    {/* Mobile Image Dropdown */}
+                    <AnimatePresence>
+                      {expandedMobileItem === item.name && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1, marginTop: 24 }}
+                          exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                          transition={{ duration: 0.4, ease: 'easeInOut' }}
+                          className='overflow-hidden w-full lg:hidden'>
+                          <div className='relative aspect-[4/3] sm:aspect-video w-full border border-ink/10 bg-ink/5'>
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fill
+                              className='object-cover'
+                              sizes='(max-width: 1024px) 100vw, 50vw'
+                            />
+                            {/* Subtle elegant border overlay */}
+                            <div className='absolute inset-2 sm:inset-4 border border-white/20 pointer-events-none' />
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 ))}
               </motion.div>
