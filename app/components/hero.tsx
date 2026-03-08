@@ -25,19 +25,19 @@ export function Hero() {
       {/* Background Image with Parallax */}
       <motion.div style={{ y, opacity }} className='absolute inset-0 z-0'>
         <Image
-          src='/images/chinese-new-year-dish-with-chopsticks.jpg'
+          src='/images/hero-1.jpg'
           alt='Intérieur élégant du restaurant chinois Chez Liqi, Paris 16e'
           fill
           priority
           className='object-cover object-center transform scale-105'
-          quality={90}
+          quality={95}
         />
         {/* Dark overlay for contrast */}
         <div className='absolute inset-0 bg-ink/70' />
         <div className='absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent opacity-90' />
       </motion.div>
 
-      <div className='container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center mt-20'>
+      <div className='container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center md:mt-20 pb-20'>
         {/* Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -54,9 +54,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className='text-5xl md:text-7xl lg:text-8xl font-playfair text-porcelain mb-8 leading-tight drop-shadow-lg'>
-          <span className='block'>Le Goût de</span>
-          <span className='block text-imperial-red italic'>l&apos;Authentique</span>
+          className='text-4xl md:text-6xl lg:text-7xl font-playfair text-porcelain mb-8 leading-tight drop-shadow-lg'>
+          <span className='block'>Restaurant chinois</span>
+          <span className='block'>authentique à Paris 16</span>
+          <span className='block text-muted-gold italic'>Nouilles et raviolis faits maison</span>
         </motion.h1>
 
         {/* Description */}
@@ -65,8 +66,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           className='max-w-2xl text-lg md:text-xl text-porcelain/80 font-light leading-relaxed mb-12'>
-          Une expérience gastronomique raffinée au cœur du 16e arrondissement de Paris. Découvrez la
-          quintessence des traditions culinaires chinoises.
+          Une expérience gastronomique raffinée au cœur du 16e arrondissement de Paris.{' '}
         </motion.p>
 
         {/* CTAs */}

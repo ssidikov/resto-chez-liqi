@@ -76,6 +76,18 @@ export function Testimonials() {
             </Card>
           ))}
         </div>
+
+        <div className='text-center mt-10'>
+          <a
+            href='https://share.google/NFng92qT5YoyJgT2Y'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold transition-colors duration-300'
+            aria-label='Voir tous les avis de Chez Liqi sur Google Maps'>
+            Voir tous les avis sur Google
+            <span aria-hidden='true'>→</span>
+          </a>
+        </div>
       </div>
     </section>
   )

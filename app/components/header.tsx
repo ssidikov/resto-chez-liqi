@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 export function Header() {
@@ -23,7 +24,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
+        isScrolled && !isMenuOpen
           ? 'bg-porcelain/80 backdrop-blur-md border-b border-ink/10 py-3 shadow-sm'
           : 'bg-transparent border-transparent py-5'
       }`}
@@ -39,11 +40,11 @@ export function Header() {
               alt='Logo Chez Liqi'
               width={40}
               height={40}
-              className={`transition-opacity duration-500 ${isScrolled ? 'opacity-100' : 'opacity-90 contrast-200 brightness-0 invert'}`}
+              className={`transition-opacity duration-500 ${isScrolled && !isMenuOpen ? 'opacity-100' : 'opacity-90 contrast-200 brightness-0 invert'}`}
               priority
             />
             <span
-              className={`font-playfair text-2xl font-semibold tracking-wide ${isScrolled ? 'text-ink' : 'text-porcelain'}`}>
+              className={`font-playfair text-2xl font-semibold tracking-wide ${isScrolled && !isMenuOpen ? 'text-ink' : 'text-porcelain'}`}>
               Chez Liqi
             </span>
           </a>
@@ -86,7 +87,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden p-2 -mr-2 transition-colors duration-300 ${isScrolled ? 'text-ink' : 'text-porcelain'}`}
+            className={`md:hidden p-2 -mr-2 relative z-50 transition-colors duration-300 ${isScrolled && !isMenuOpen ? 'text-ink' : 'text-porcelain'}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-controls='mobile-navigation'
@@ -95,47 +96,99 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation Dropdown */}
-        {isMenuOpen && (
-          <nav
-            id='mobile-navigation'
-            className='md:hidden absolute top-full left-0 w-full bg-porcelain/95 backdrop-blur-xl border-b border-ink/10 shadow-2xl py-6 px-6 flex flex-col items-center gap-6'
-            aria-label='Menu de navigation mobile'>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              href='#accueil'
-              className='text-ink text-lg font-playfair tracking-wider hover:text-imperial-red transition-colors'>
-              Le Lieu
-            </a>
-            <div className='w-8 h-px bg-ink/10' />
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              href='#about'
-              className='text-ink text-lg font-playfair tracking-wider hover:text-imperial-red transition-colors'>
-              L&apos;Héritage
-            </a>
-            <div className='w-8 h-px bg-ink/10' />
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              href='#carte'
-              className='text-ink text-lg font-playfair tracking-wider hover:text-imperial-red transition-colors'>
-              La Carte
-            </a>
-            <div className='w-8 h-px bg-ink/10' />
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              href='#contact'
-              className='text-ink text-lg font-playfair tracking-wider hover:text-imperial-red transition-colors'>
-              Contact
-            </a>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              href='tel:0782886705'
-              className='mt-4 bg-imperial-red text-white uppercase tracking-widest text-sm px-8 py-4 w-full text-center transition-colors'>
-              Réserver au 07 82 88 67 05
-            </a>
-          </nav>
-        )}
+        {/* Mobile Navigation Dropdown (Premium Fullscreen Overlay) */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              id='mobile-navigation'
+              className='md:hidden fixed inset-0 z-40 bg-ink flex flex-col items-center justify-center min-h-[100dvh]'
+              aria-label='Menu de navigation mobile'>
+              {/* Decorative Background Elements */}
+              <div className='absolute inset-0 pointer-events-none opacity-5 flex items-center justify-center overflow-hidden'>
+                <span className='font-playfair text-[40vw] text-white whitespace-nowrap opacity-20'>
+                  醴琦
+                </span>
+              </div>
+
+              <div className='flex flex-col items-center gap-10 relative z-10 w-full px-8'>
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  href='#accueil'
+                  className='text-porcelain text-3xl font-playfair tracking-wider hover:text-imperial-red transition-colors'>
+                  Le Lieu
+                </motion.a>
+
+                <motion.div
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: 40 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className='h-[1px] bg-white/20'
+                />
+
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  href='#about'
+                  className='text-porcelain text-3xl font-playfair tracking-wider hover:text-imperial-red transition-colors'>
+                  L&apos;Héritage
+                </motion.a>
+
+                <motion.div
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: 40 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className='h-[1px] bg-white/20'
+                />
+
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  href='#carte'
+                  className='text-porcelain text-3xl font-playfair tracking-wider hover:text-imperial-red transition-colors'>
+                  La Carte
+                </motion.a>
+
+                <motion.div
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: 40 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className='h-[1px] bg-white/20'
+                />
+
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  href='#contact'
+                  className='text-porcelain text-3xl font-playfair tracking-wider hover:text-imperial-red transition-colors'>
+                  Contact
+                </motion.a>
+
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  href='tel:0782886705'
+                  className='mt-8 bg-imperial-red text-white uppercase tracking-widest text-sm px-10 py-5 w-full max-w-xs text-center transition-colors shadow-xl'>
+                  Réserver—07 82 88 67 05
+                </motion.a>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   )

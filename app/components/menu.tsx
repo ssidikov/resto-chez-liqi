@@ -276,9 +276,9 @@ export function Menu() {
         </motion.div>
 
         {/* Menu Layout: 2 Columns (Image Left, List Right) */}
-        <div className='grid lg:grid-cols-12 gap-12 lg:gap-24 items-start'>
+        <div className='grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-24 items-start'>
           {/* Dynamic Image Display on Left (Visible on lg screens) */}
-          <div className='hidden lg:block lg:col-span-5 sticky top-24 lg:top-32 z-10'>
+          <div className='hidden lg:block lg:col-span-5 xl:col-span-5 sticky top-24 lg:top-32 z-10'>
             <div className='aspect-[3/4] w-full relative overflow-hidden bg-ink/5'>
               <AnimatePresence mode='wait'>
                 <motion.div

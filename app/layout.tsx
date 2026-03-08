@@ -3,6 +3,7 @@ import { Inter, Dancing_Script, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
 import { StickyMobileBar } from './components/sticky-mobile-bar'
+import { AgencyCTA } from './components/agency-cta'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,7 +37,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Restaurant Chinois Authentique Paris 16 – Nouilles & Raviolis Maison',
+  title: {
+    default: 'Chez Liqi – Restaurant Chinois Authentique Paris 16 | Nouilles & Raviolis Maison',
+    template: '%s | Chez Liqi',
+  },
   description:
     'Restaurant chinois authentique dans le 16e arrondissement de Paris. Nouilles et raviolis faits maison. Cuisine traditionnelle chinoise et ingrédients frais.',
   keywords: [
@@ -136,6 +140,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${inter.variable} ${inter.className} ${dancingScript.variable} ${playfair.variable} bg-porcelain font-sans text-ink antialiased selection:bg-imperial-red selection:text-white`}>
         {children}
         <StickyMobileBar />
+        <AgencyCTA />
         <Analytics />
       </body>
     </html>

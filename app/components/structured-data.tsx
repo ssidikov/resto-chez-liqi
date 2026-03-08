@@ -240,6 +240,58 @@ export function StructuredData() {
     image: 'https://chez-liqi.vercel.app/images/hero-interior.webp',
   }
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://chez-liqi.vercel.app/#website',
+    name: 'Chez Liqi',
+    alternateName: ['Chez Liqi 醴琦餐厅', 'Chez Lìqí'],
+    url: 'https://chez-liqi.vercel.app',
+    publisher: {
+      '@id': 'https://chez-liqi.vercel.app/#restaurant',
+    },
+    inLanguage: 'fr-FR',
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quels sont les horaires du restaurant Chez Liqi ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Chez Liqi est ouvert du lundi au samedi de 11h30 à 14h30 et de 18h30 à 22h30. Le dimanche, nous sommes ouverts uniquement le soir de 18h30 à 22h30.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Où se trouve le restaurant Chez Liqi à Paris ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Chez Liqi est situé au 33 Rue Chanez, 75016 Paris, dans le 16e arrondissement, à proximité du métro Michel Ange Molitor (lignes 9 et 10).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Comment réserver une table chez Liqi ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Vous pouvez réserver une table en appelant directement au 07 82 88 67 05. La réservation est recommandée, surtout le week-end.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quelles sont les spécialités du restaurant Chez Liqi ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Chez Liqi est spécialisé dans les nouilles et raviolis faits maison, préparés chaque jour selon les recettes traditionnelles chinoises. Nous proposons également des entrées, desserts et boissons.',
+        },
+      },
+    ],
+  }
+
   return (
     <>
       <script
@@ -253,6 +305,14 @@ export function StructuredData() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   )

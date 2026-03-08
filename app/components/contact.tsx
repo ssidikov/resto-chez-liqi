@@ -30,7 +30,7 @@ export function Contact() {
           </h2>
         </motion.div>
 
-        <div className='grid lg:grid-cols-12 gap-16 lg:gap-24 items-start'>
+        <div className='grid lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-24 items-start'>
           {/* Contact Details Column */}
           <div className='lg:col-span-5 space-y-12'>
             {/* Address */}
